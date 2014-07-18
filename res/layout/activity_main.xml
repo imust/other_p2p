@@ -2,51 +2,46 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center"
     android:orientation="vertical"
+    android:padding="10dp"
     tools:context="${relativePackage}.${activityClass}" >
 
-    <Button
-        android:id="@+id/button1"
+    <EditText
+        android:id="@+id/username"
+        android:hint="输入用户名"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:layout_margin="10dp"
-        android:text="正常安装新版" />
+        />
+    
+    <EditText
+        android:id="@+id/password"
+        android:hint="输入密码"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+    
+    <Button
+        android:id="@+id/signin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="登录" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/signup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:layout_margin="10dp"
-        android:text="申请ROOT权限" />
-
-    <Button
-        android:id="@+id/button2"
+        android:layout_marginTop="10dp"
+        android:text="注册" />
+    
+    <ListView 
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:text="静默安装新版" />
-
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:text="静默安装旧版" />
-
-    <Button
-        android:id="@+id/button5"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:text="启动主APK" />
-
-    <TextView
-        android:id="@+id/text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:text="..." />
+		android:layout_height="match_parent"
+		android:id="@+id/mList"
+        >
+        
+        
+    </ListView>
 
 </LinearLayout>
