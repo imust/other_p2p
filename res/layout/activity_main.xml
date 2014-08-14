@@ -7,41 +7,9 @@
     android:padding="10dp"
     tools:context="${relativePackage}.${activityClass}" >
 
-    <EditText
-        android:id="@+id/username"
-        android:hint="输入用户名"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        />
-    
-    <EditText
-        android:id="@+id/password"
-        android:hint="输入密码"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        />
-    
-    <Button
-        android:id="@+id/signin"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="登录" />
-
-    <Button
-        android:id="@+id/signup"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="注册" />
-    
-    <ListView 
-        android:layout_width="match_parent"
-		android:layout_height="match_parent"
-		android:id="@+id/mList"
+    <ListView style="@style/layout_m_m"
+        android:id="@+id/mList"
         >
-        
-        
     </ListView>
 
 </LinearLayout>
