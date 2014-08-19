@@ -28,6 +28,7 @@ import static java.net.HttpURLConnection.HTTP_NOT_FOUND;
 import static java.net.HttpURLConnection.HTTP_NOT_MODIFIED;
 import static java.net.HttpURLConnection.HTTP_NO_CONTENT;
 import static java.net.HttpURLConnection.HTTP_OK;
+import static java.net.HttpURLConnection.HTTP_UNAUTHORIZED;
 import static java.net.Proxy.Type.HTTP;
 
 import java.io.BufferedInputStream;
@@ -1607,6 +1608,15 @@ public class HttpRequest {
     return HTTP_NOT_MODIFIED == code();
   }
 
+  /**
+   * 
+ * @return
+ * @throws HttpRequestException
+ */
+public boolean unAuthorized () throws HttpRequestException {
+      return HTTP_UNAUTHORIZED == code();
+  }
+  
   /**
    * Get status message of the response
    *
