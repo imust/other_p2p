@@ -1,8 +1,14 @@
 package demo.p2p.hl.http;
 
+import org.json.JSONObject;
+
+import android.app.Application;
+import android.content.Context;
 import de.greenrobot.event.EventBus;
 import demo.p2p.hl.event.EventNotLogin;
 import demo.p2p.hl.event.EventToastError;
+import demo.p2p.hl.util.Lg;
+import demo.p2p.hl.util.Sp;
 
 /**
  * http辅助类, 实现一个统一的认证及http基本配置
@@ -12,22 +18,44 @@ import demo.p2p.hl.event.EventToastError;
  */
 public class HttpHelper {
 
+    private static HttpHelper mInstance;
+    private Context mContext;
+    private Sp mSp;
+    
+    public synchronized static HttpHelper getDefault() {
+        if (mInstance == null) {
+            mInstance = new HttpHelper();
+        }
+        return mInstance;
+    }
+    
+    private HttpHelper() {}
+    
+    public void init(Application context) {
+        mContext = context;
+        mSp = new Sp(context);
+    }
+    
     /**
      * 各种授权认证
      * @param request
      * @return
      */
-    public static String auth(HttpRequest request) {
+    public String auth(HttpRequest request) {
+        String cookie = mSp.getString(Sp.SP_USER_SESSION, null);
+        if (cookie != null) {
+            request.header("Cookie", cookie);
+        }
         return result(request);
     }
     
     /**
      * 保存登录认证
      */
-    public static void tryToSaveAuth(HttpRequest request) {
+    public void tryToSaveAuth(HttpRequest request) {
         String setCookie = request.header("Set-Cookie");
         if (setCookie != null) {
-            
+            new Sp(mContext).putString(Sp.SP_USER_SESSION, setCookie);
         }
     }
     
@@ -36,12 +64,14 @@ public class HttpHelper {
      * @param request
      * @return
      */
-    public static String result(HttpRequest request) {
+    public String result(HttpRequest request) {
         
         try {
             if (request.ok()) {
                 tryToSaveAuth(request);
-                return request.body();
+                String result = request.body();
+                Lg.d("http", result);
+                return result;
             }
             
             if (request.unAuthorized()) {
@@ -50,7 +80,11 @@ public class HttpHelper {
             }
             
             if (request.serverError()) {
-                EventBus.getDefault().post(new EventToastError("服务端错误"));
+                // {code:500, msg:xxxxx}
+                String body = request.body();
+                JSONObject jsonObject = new JSONObject(body);
+                String msg = jsonObject.getString("msg");
+                EventBus.getDefault().post(new EventToastError(msg != null ? msg :  "未知的服务端错误"));
                 return null;
             }
             
@@ -61,11 +95,11 @@ public class HttpHelper {
         }
     }
     
-    public static String get(CharSequence url) {
+    public String get(CharSequence url) {
         return auth(HttpRequest.get(url));
     }
     
-    public static String get(CharSequence url, boolean isEncode, Object... params) {
+    public String get(CharSequence url, boolean isEncode, Object... params) {
         return auth(HttpRequest.get(url, isEncode, params));
     }
     

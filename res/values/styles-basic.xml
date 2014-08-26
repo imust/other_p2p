@@ -1,23 +1,44 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <style name="layout_m_w">
+    <style name="layout">
+    </style>
+    
+    <style name="layout.m">
         <item name="android:layout_width">match_parent</item>
+    </style>
+    
+    <style name="layout.w">
+        <item name="android:layout_width">wrap_content</item>
+    </style>
+    
+    <style name="layout.m.w">
         <item name="android:layout_height">wrap_content</item>
     </style>
 
-    <style name="layout_m_m">
-        <item name="android:layout_width">match_parent</item>
+    <style name="layout.m.m">
         <item name="android:layout_height">match_parent</item>
     </style>
 
-    <style name="layout_w_w">
-        <item name="android:layout_width">wrap_content</item>
+    <style name="layout.w.m">
+        <item name="android:layout_height">match_parent</item>
+    </style>
+    
+    <style name="layout.w.w">
         <item name="android:layout_height">wrap_content</item>
     </style>
-
-    <style name="layout_w_m">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">match_parent</item>
+    
+    <style name="text_menu">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/h50</item>
+        <item name="android:textSize">@dimen/text_18</item>
+        <item name="android:textColor">@color/text_white</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:paddingLeft">@dimen/p20</item>
+        <item name="android:background">@drawable/bg_menu_selector</item>
+        <item name="android:clickable">true</item>
+        <item name="android:drawablePadding">@dimen/p20</item>
     </style>
-
+    
+    
+    
 </resources>

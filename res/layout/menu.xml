@@ -1,0 +1,58 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/layout.m.m"
+    android:background="@drawable/bg_menu"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        style="@style/layout.m.w"
+        android:layout_height="@dimen/s80"
+        android:background="@drawable/bg_menu_selector"
+        android:paddingLeft="@dimen/p20"
+        android:clickable="true"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:src="@drawable/user_profile_male_default"
+            android:layout_width="@dimen/s40"
+            android:layout_height="@dimen/s40"
+            android:scaleType="fitXY" />
+
+        <TextView
+            style="@style/layout.w.w"
+            android:paddingLeft="@dimen/p20"
+            android:text="黄林"
+            android:textColor="@color/text_white"
+            android:textSize="@dimen/text_18" />
+    </LinearLayout>
+
+    <TextView
+        style="@style/text_menu"
+        android:drawableLeft="@drawable/icon_menu_home"
+        android:text="首页" />
+
+    <TextView
+        style="@style/text_menu"
+        android:drawableLeft="@drawable/icon_menu_stock"
+        android:text="交易中心" />
+
+    <TextView
+        style="@style/text_menu"
+        android:drawableLeft="@drawable/icon_menu_person_center"
+        android:text="个人中心" />
+
+    <TextView
+        style="@style/text_menu"
+        android:text="切换账号" />
+
+    <TextView
+        style="@style/text_menu"
+        android:drawableLeft="@drawable/icon_menu_setting"
+        android:text="系统设置" />
+
+    <TextView
+        style="@style/text_menu"
+        android:text="退出" />
+
+</LinearLayout>

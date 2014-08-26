@@ -12,7 +12,10 @@ import android.content.SharedPreferences;
 public class Sp {
 
 	private Context mContext;
+	
 	public static final String PHONE_SP_NAME = "p2p_sp";
+	
+	public static final String SP_USER_SESSION = "user_session";
 	
 	public Sp(Context context) {
 		mContext = context;

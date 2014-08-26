@@ -1,0 +1,14 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/layout.m.m"
+    android:gravity="center"
+    android:orientation="vertical" >
+
+    <Button
+        android:id="@+id/login"
+        style="@style/layout.m.w"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:text="测试" />
+
+</LinearLayout>

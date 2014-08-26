@@ -15,7 +15,7 @@ public class BaseAct extends Activity {
         super.onCreate(savedInstanceState);
         EventBus.getDefault().register(this);
     }
-    
+//    
     @Override
     protected void onDestroy() {
         super.onDestroy();
