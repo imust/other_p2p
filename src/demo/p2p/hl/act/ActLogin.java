@@ -13,6 +13,7 @@ import demo.p2p.hl.app.UserSession;
 import demo.p2p.hl.base.BaseAct;
 import demo.p2p.hl.data.User;
 import demo.p2p.hl.http.api.Api;
+import demo.p2p.hl.http.api.ApiException;
 
 @EActivity(R.layout.act_login)
 public class ActLogin extends BaseAct {
@@ -31,7 +32,14 @@ public class ActLogin extends BaseAct {
     @Click
     @Background
     void login() {
-        User user = Api.login("17092848584", "890218");
+        
+        User user = null;
+        try {
+            user = Api.login("17092848584", "890218");
+        } catch (ApiException e) {
+            onApiException(e);
+        }
+        
         if (user != null) {
             UserSession.open(user);
             startActivity(new Intent(this, ActMain_.class));

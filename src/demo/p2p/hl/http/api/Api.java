@@ -11,7 +11,7 @@ import demo.p2p.hl.util.Lg;
 public class Api {
     
     
-    public static User login(String username, String password) {
+    public static User login(String username, String password) throws ApiException {
         String result = 
         HttpHelper.getDefault().get(Config.createUri("user", "logins"), true, 
                 "username", username , "pwd", password);

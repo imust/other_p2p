@@ -1,23 +1,21 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    style="@style/layout.m.m"
-    android:background="@drawable/bg_menu"
-    android:orientation="vertical" >
+    >
 
     <LinearLayout
         style="@style/layout.m.w"
         android:layout_height="@dimen/s80"
         android:background="@drawable/bg_menu_selector"
-        android:paddingLeft="@dimen/p20"
         android:clickable="true"
         android:gravity="center_vertical"
-        android:orientation="horizontal" >
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/p20" >
 
         <ImageView
-            android:src="@drawable/user_profile_male_default"
             android:layout_width="@dimen/s40"
             android:layout_height="@dimen/s40"
-            android:scaleType="fitXY" />
+            android:scaleType="fitXY"
+            android:src="@drawable/user_profile_male_default" />
 
         <TextView
             style="@style/layout.w.w"
@@ -27,32 +25,58 @@
             android:textSize="@dimen/text_18" />
     </LinearLayout>
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginBottom="@dimen/m10"
+        android:layout_marginLeft="@dimen/m20"
+        android:layout_marginRight="@dimen/m20"
+        android:layout_marginTop="@dimen/m10"
+        android:background="@drawable/line_menu" />
+
     <TextView
+        android:id="@+id/home"
         style="@style/text_menu"
         android:drawableLeft="@drawable/icon_menu_home"
         android:text="首页" />
 
     <TextView
+        android:id="@+id/trade"
         style="@style/text_menu"
         android:drawableLeft="@drawable/icon_menu_stock"
         android:text="交易中心" />
 
     <TextView
+        android:id="@+id/person"
         style="@style/text_menu"
         android:drawableLeft="@drawable/icon_menu_person_center"
         android:text="个人中心" />
 
-    <TextView
-        style="@style/text_menu"
-        android:text="切换账号" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginBottom="@dimen/m10"
+        android:layout_marginLeft="@dimen/m20"
+        android:layout_marginRight="@dimen/m20"
+        android:layout_marginTop="@dimen/m10"
+        android:background="@drawable/line_menu" />
 
     <TextView
+        android:id="@+id/setting"
         style="@style/text_menu"
         android:drawableLeft="@drawable/icon_menu_setting"
         android:text="系统设置" />
 
     <TextView
+        android:id="@+id/change"
         style="@style/text_menu"
+        android:drawableLeft="@drawable/icon_menu_change_account"
+        android:text="切换账号" />
+
+    <TextView
+        android:id="@+id/exit"
+        style="@style/text_menu"
+        android:drawableLeft="@drawable/icon_menu_exit"
         android:text="退出" />
 
-</LinearLayout>
+</merge>

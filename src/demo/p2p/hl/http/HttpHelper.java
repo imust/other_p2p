@@ -1,12 +1,10 @@
 package demo.p2p.hl.http;
 
-import org.json.JSONObject;
-
 import android.app.Application;
 import android.content.Context;
-import de.greenrobot.event.EventBus;
-import demo.p2p.hl.event.EventNotLogin;
-import demo.p2p.hl.event.EventToastError;
+import demo.p2p.hl.http.api.ApiAuthorizedException;
+import demo.p2p.hl.http.api.ApiException;
+import demo.p2p.hl.util.JsonUtil;
 import demo.p2p.hl.util.Lg;
 import demo.p2p.hl.util.Sp;
 
@@ -41,7 +39,7 @@ public class HttpHelper {
      * @param request
      * @return
      */
-    public String auth(HttpRequest request) {
+    public String auth(HttpRequest request) throws ApiException {
         String cookie = mSp.getString(Sp.SP_USER_SESSION, null);
         if (cookie != null) {
             request.header("Cookie", cookie);
@@ -64,7 +62,7 @@ public class HttpHelper {
      * @param request
      * @return
      */
-    public String result(HttpRequest request) {
+    public String result(HttpRequest request) throws ApiException {
         
         try {
             if (request.ok()) {
@@ -75,31 +73,28 @@ public class HttpHelper {
             }
             
             if (request.unAuthorized()) {
-                EventBus.getDefault().post(new EventNotLogin());
-                return null;
+                throw new ApiAuthorizedException();
             }
             
             if (request.serverError()) {
                 // {code:500, msg:xxxxx}
                 String body = request.body();
-                JSONObject jsonObject = new JSONObject(body);
-                String msg = jsonObject.getString("msg");
-                EventBus.getDefault().post(new EventToastError(msg != null ? msg :  "未知的服务端错误"));
-                return null;
+                String msg = JsonUtil.getString(body, "msg");
+                throw new ApiException(msg != null ? msg :  "未知的服务端错误");
             }
             
-            return null;
         } catch (Exception e) {
-            EventBus.getDefault().post(new EventToastError(e.getMessage()));
-            return null;
+            throw new ApiException("网络连接异常");
         }
+        
+        throw new ApiException("未知的服务端错误");
     }
     
-    public String get(CharSequence url) {
+    public String get(CharSequence url) throws ApiException {
         return auth(HttpRequest.get(url));
     }
     
-    public String get(CharSequence url, boolean isEncode, Object... params) {
+    public String get(CharSequence url, boolean isEncode, Object... params) throws ApiException {
         return auth(HttpRequest.get(url, isEncode, params));
     }
     

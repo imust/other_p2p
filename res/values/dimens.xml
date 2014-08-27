@@ -36,6 +36,10 @@
     <dimen name="s80">80dp</dimen> 
     
     <dimen name="p20">20dp</dimen> 
+    <dimen name="m20">20dp</dimen> 
+    <dimen name="m10">10dp</dimen> 
+    
+    
     
     <dimen name="h50">50dp</dimen> 
     
