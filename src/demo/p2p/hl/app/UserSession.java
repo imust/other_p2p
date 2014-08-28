@@ -19,6 +19,10 @@ public class UserSession {
         return mInstance;
     }
     
+    public synchronized static UserSession get() {
+        return mInstance;
+    }
+    
     public User getUser() {
         return mUser;
     }

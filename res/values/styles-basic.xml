@@ -30,7 +30,7 @@
     <style name="text_menu">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">@dimen/h50</item>
-        <item name="android:textSize">@dimen/text_18</item>
+        <item name="android:textSize">@dimen/t18</item>
         <item name="android:textColor">@color/text_white</item>
         <item name="android:gravity">center_vertical</item>
         <item name="android:paddingLeft">@dimen/p20</item>

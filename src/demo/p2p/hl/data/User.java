@@ -2,15 +2,15 @@ package demo.p2p.hl.data;
 
 public class User {
     /** 已担保额度 */
-    public int assure;
+    public float assure;
     /** 最大担保额度 */
-    public int assureMax;
+    public float assureMax;
     /** 账户可用余额 */
-    public int balance;
+    public float balance;
     /** 已借入金额 */
-    public int borrowIn;
+    public float borrowIn;
     /** 已借出金额 */
-    public int borrowOut;
+    public float borrowOut;
     /** 创建时间 */
     public String createDate;
     /** 邮箱前2位 */

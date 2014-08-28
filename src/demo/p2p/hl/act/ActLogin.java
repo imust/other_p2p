@@ -10,13 +10,13 @@ import android.content.Intent;
 import android.widget.EditText;
 import demo.p2p.hl.R;
 import demo.p2p.hl.app.UserSession;
-import demo.p2p.hl.base.BaseAct;
+import demo.p2p.hl.base.BaseActivity;
 import demo.p2p.hl.data.User;
 import demo.p2p.hl.http.api.Api;
 import demo.p2p.hl.http.api.ApiException;
 
 @EActivity(R.layout.act_login)
-public class ActLogin extends BaseAct {
+public class ActLogin extends BaseActivity {
 
     @ViewById
     EditText mUsername;

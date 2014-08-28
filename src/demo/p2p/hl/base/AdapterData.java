@@ -7,5 +7,5 @@ package demo.p2p.hl.base;
  *
  */
 public interface AdapterData {
-
+    
 }

@@ -1,0 +1,90 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/layout.m.m"
+    android:orientation="vertical"
+    android:padding="@dimen/p10" >
+
+    <LinearLayout
+        style="@style/layout.m.w"
+        android:background="@drawable/bg_item_single_selector"
+        android:clickable="true"
+        android:orientation="horizontal"
+        android:padding="@dimen/p10" >
+
+        <ImageView
+            android:layout_width="@dimen/s50"
+            android:layout_height="@dimen/s50"
+            android:scaleType="fitXY"
+            android:src="@drawable/user_profile_male_default" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/p10" >
+
+            <TextView
+                android:id="@+id/mName"
+                style="@style/layout.w.w"
+                android:textColor="@color/text_black"
+                android:textSize="@dimen/t18" />
+
+            <TextView
+                android:id="@+id/mPhone"
+                style="@style/layout.w.w"
+                android:textColor="@color/text_black"
+                android:textSize="@dimen/t16" />
+        </LinearLayout>
+
+        <ImageView
+            style="@style/layout.w.w"
+            android:layout_gravity="center_vertical"
+            android:rotation="180"
+            android:src="@drawable/icon_back_dark" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/mBalance"
+        style="@style/layout.m.w"
+        android:layout_marginTop="@dimen/m10"
+        android:background="@drawable/bg_item_top_selector"
+        android:clickable="true"
+        android:drawableLeft="@drawable/icon_setting_balance"
+        android:drawablePadding="@dimen/p10"
+        android:drawableRight="@drawable/icon_back_dark_r180"
+        android:gravity="center_vertical"
+        android:padding="@dimen/p10"
+        android:text="账户余额"
+        android:textColor="@color/text_black"
+        android:textSize="@dimen/t18" />
+
+    <TextView
+        android:id="@+id/mTradeRecord"
+        style="@style/layout.m.w"
+        android:background="@drawable/bg_item_middle_selector"
+        android:clickable="true"
+        android:drawableLeft="@drawable/icon_setting_trade_record"
+        android:drawablePadding="@dimen/p10"
+        android:drawableRight="@drawable/icon_back_dark_r180"
+        android:gravity="center_vertical"
+        android:padding="@dimen/p10"
+        android:text="交易记录"
+        android:textColor="@color/text_black"
+        android:textSize="@dimen/t18" />
+
+    <TextView
+        android:id="@+id/mWithDraw"
+        style="@style/layout.m.w"
+        android:background="@drawable/bg_item_bottom_selector"
+        android:clickable="true"
+        android:drawableLeft="@drawable/icon_setting_withdraw"
+        android:drawablePadding="@dimen/p10"
+        android:drawableRight="@drawable/icon_back_dark_r180"
+        android:gravity="center_vertical"
+        android:padding="@dimen/p10"
+        android:text="提现"
+        android:textColor="@color/text_black"
+        android:textSize="@dimen/t18" />
+    
+</LinearLayout>

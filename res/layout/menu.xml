@@ -18,11 +18,11 @@
             android:src="@drawable/user_profile_male_default" />
 
         <TextView
+            android:id="@+id/mName"
             style="@style/layout.w.w"
             android:paddingLeft="@dimen/p20"
-            android:text="黄林"
             android:textColor="@color/text_white"
-            android:textSize="@dimen/text_18" />
+            android:textSize="@dimen/t18" />
     </LinearLayout>
 
     <View

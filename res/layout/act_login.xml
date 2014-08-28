@@ -29,5 +29,6 @@
         android:layout_marginLeft="50dp"
         android:layout_marginRight="50dp"
         android:text="登录" />
+    
 
 </LinearLayout>

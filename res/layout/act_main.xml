@@ -1,14 +1,10 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    style="@style/layout.m.m"
-    android:gravity="center"
-    android:orientation="vertical" >
+    style="@style/layout.m.m" >
 
-    <Button
-        android:id="@+id/login"
-        style="@style/layout.m.w"
-        android:layout_marginLeft="50dp"
-        android:layout_marginRight="50dp"
-        android:text="测试" />
+    <FrameLayout
+        android:id="@+id/mContainer"
+        style="@style/layout.m.m" >
+    </FrameLayout>
 
-</LinearLayout>
+</RelativeLayout>

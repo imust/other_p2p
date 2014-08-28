@@ -2,6 +2,7 @@ package demo.p2p.hl.http;
 
 import android.app.Application;
 import android.content.Context;
+import demo.p2p.hl.http.HttpRequest.HttpRequestException;
 import demo.p2p.hl.http.api.ApiAuthorizedException;
 import demo.p2p.hl.http.api.ApiException;
 import demo.p2p.hl.util.JsonUtil;
@@ -65,14 +66,16 @@ public class HttpHelper {
     public String result(HttpRequest request) throws ApiException {
         
         try {
+            Lg.d("http", request.url().toString());
             if (request.ok()) {
                 tryToSaveAuth(request);
                 String result = request.body();
-                Lg.d("http", result);
+                Lg.d("http", "200:" + result);
                 return result;
             }
             
             if (request.unAuthorized()) {
+                Lg.d("http", "401");
                 throw new ApiAuthorizedException();
             }
             
@@ -80,10 +83,11 @@ public class HttpHelper {
                 // {code:500, msg:xxxxx}
                 String body = request.body();
                 String msg = JsonUtil.getString(body, "msg");
+                Lg.d("http", "500:" + body);
                 throw new ApiException(msg != null ? msg :  "未知的服务端错误");
             }
             
-        } catch (Exception e) {
+        } catch (HttpRequestException e) {
             throw new ApiException("网络连接异常");
         }
         
