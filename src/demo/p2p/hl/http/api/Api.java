@@ -8,7 +8,9 @@ import demo.p2p.hl.http.HttpHelper;
 
 public class Api {
     
-    public static final String URI_ROOT = "https://www.ddw0817.com";
+//    public static final String URI_ROOT = "https://www.ddw0817.com";
+    public static final String URI_ROOT = "https://beta.ddw0817.com";
+    
     
     /**
      * 用户登录
