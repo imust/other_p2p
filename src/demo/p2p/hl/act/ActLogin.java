@@ -43,6 +43,7 @@ public class ActLogin extends BaseActivity {
         if (user != null) {
             UserSession.open(user);
             startActivity(new Intent(this, ActMain_.class));
+            finish();
         }
     }
     

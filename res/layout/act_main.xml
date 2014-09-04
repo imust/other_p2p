@@ -1,10 +1,18 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/mDrawer"
     style="@style/layout.m.m" >
+
+    <!-- The main content view -->
 
     <FrameLayout
         android:id="@+id/mContainer"
-        style="@style/layout.m.m" >
-    </FrameLayout>
+        style="@style/layout.m.m" />
+    <!-- The navigation drawer -->
 
-</RelativeLayout>
+    <demo.p2p.hl.view.MenuView_
+        android:id="@+id/mMenuView"
+        android:layout_width="@dimen/s240"
+        android:layout_height="match_parent"
+        android:layout_gravity="start" />
+
+</android.support.v4.widget.DrawerLayout>

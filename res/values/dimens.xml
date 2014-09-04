@@ -16,6 +16,7 @@
     <dimen name="s120">120dp</dimen> 
     <dimen name="s150">150dp</dimen> 
     <dimen name="s200">200dp</dimen> 
+    <dimen name="s240">240dp</dimen> 
     
     <dimen name="p5">5dp</dimen> 
     <dimen name="p10">10dp</dimen> 

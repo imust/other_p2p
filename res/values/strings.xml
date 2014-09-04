@@ -3,5 +3,7 @@
 
     <string name="app_name">demo.plug.core</string>
     <string name="hello_world">Hello world!</string>
-
+    <string name="drawer_open">open!</string>
+        <string name="drawer_close">close!</string>
+    
 </resources>

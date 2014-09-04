@@ -3,26 +3,32 @@ package demo.p2p.hl.act;
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.UiThread;
+import org.androidannotations.annotations.ViewById;
 
 import android.app.Fragment;
 import android.os.Bundle;
-
-import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
-
+import android.support.v4.app.ActionBarDrawerToggle;
+import android.support.v4.widget.DrawerLayout;
+import android.view.MenuItem;
 import de.greenrobot.event.EventBus;
 import demo.p2p.hl.R;
 import demo.p2p.hl.base.BaseActivity;
 import demo.p2p.hl.event.EventMenuChange;
 import demo.p2p.hl.frag.FragHome_;
 import demo.p2p.hl.view.MenuView;
-import demo.p2p.hl.view.MenuView_;
 
 @EActivity(R.layout.act_main)
 public class ActMain extends BaseActivity {
     
-    private MenuView mMenuView;
-    private SlidingMenu mSlidingMenu;
     private Fragment mCurrentFragment;
+    
+    @ViewById
+    MenuView mMenuView;
+    
+    @ViewById
+    DrawerLayout mDrawer;
+    
+    ActionBarDrawerToggle mDrawerToggle;
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,22 +44,39 @@ public class ActMain extends BaseActivity {
     
     @AfterViews
     void init() {
-        initSlidingMenu();
         initCurrentPage();
+        initDrawer();
     }
     
     private void initCurrentPage() {
         replaceFragment(FragHome_.builder().build());
     }
+
+    private void initDrawer() {
+        
+        mDrawerToggle = new ActionBarDrawerToggle(this, 
+                mDrawer, R.drawable.ic_drawer, R.string.drawer_open, R.string.drawer_close);
+        
+        mDrawer.setDrawerListener(mDrawerToggle);
+        
+        getActionBar().setDisplayHomeAsUpEnabled(true);  
+        getActionBar().setHomeButtonEnabled(true);  
+        getActionBar().setIcon(R.drawable.ic_title_logo);
+    }
     
-    private void initSlidingMenu() {
-        mSlidingMenu = new SlidingMenu(this);
-        mMenuView = MenuView_.build(this);
-        mSlidingMenu.setMode(SlidingMenu.LEFT);
-        mSlidingMenu.setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);
-        mSlidingMenu.attachToActivity(this, SlidingMenu.SLIDING_CONTENT);
-        mSlidingMenu.setBehindOffsetRes(R.dimen.s120);
-        mSlidingMenu.setMenu(mMenuView);
+    
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (mDrawerToggle.onOptionsItemSelected(item)) {
+          return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+    
+    @Override
+    protected void onPostCreate(Bundle savedInstanceState) {
+        super.onPostCreate(savedInstanceState);
+        mDrawerToggle.syncState();
     }
     
     public void onEventMainThread(EventMenuChange event) {
@@ -62,13 +85,13 @@ public class ActMain extends BaseActivity {
     
     @UiThread
     public void replaceFragment(Fragment fragment) {
-        
-        if (fragment != mCurrentFragment) {
+        if (mCurrentFragment == null ||
+                !fragment.getClass().getName().equals(mCurrentFragment.getClass().getName())) {
             mCurrentFragment = fragment; 
             getFragmentManager().beginTransaction().replace(R.id.mContainer, fragment)
                 .commitAllowingStateLoss();
         }
-        mSlidingMenu.showContent();
+        mDrawer.closeDrawer(mMenuView);
     }
     
 

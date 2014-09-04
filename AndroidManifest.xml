@@ -19,6 +19,7 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name="demo.p2p.hl.act.ActLogin_"
+            android:screenOrientation="portrait"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -27,7 +28,9 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="demo.p2p.hl.act.ActMain_" />
+            android:name="demo.p2p.hl.act.ActMain_" 
+            android:screenOrientation="portrait"
+            />
     </application>
 
 </manifest>
