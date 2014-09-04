@@ -33,8 +33,19 @@ public class Lg {
         }
     }
 	
-	
-	
+    public static void e(String log) {
+        e(DEFAULT_TAG, log == null ? "null" : log);
+    }
+    
+    public static void e(Object log) {
+        e(log == null ? "null" : log.toString());
+    }
+   
+    public static void e(String tag, String log) {
+        if (DEBUG) {
+            Log.e(tag, log);
+        }
+    }
 	
 	
 }

@@ -1,7 +1,7 @@
 package demo.p2p.hl.base;
 
 import java.lang.reflect.ParameterizedType;
-import java.util.ArrayList;
+import java.util.List;
 
 import android.content.Context;
 import android.view.View;
@@ -20,7 +20,7 @@ import android.widget.BaseAdapter;
 public abstract class EsayAdapter<T extends AdapterData, K extends AdapterView<T>> 
 	extends BaseAdapter {
 
-	private ArrayList<T> mListData;
+	private List<T> mListData;
 	private Context mContext;
 	
 	public EsayAdapter(Context context) {
@@ -42,7 +42,7 @@ public abstract class EsayAdapter<T extends AdapterData, K extends AdapterView<T
 		return position;
 	}
 
-	public void setList(ArrayList<T> list) { 
+	public void setList(List<T> list) { 
 		mListData = list;
 		notifyDataSetInvalidated();
 	}

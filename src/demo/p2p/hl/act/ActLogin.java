@@ -35,7 +35,7 @@ public class ActLogin extends BaseActivity {
         
         User user = null;
         try {
-            user = Api.login("17092848584", "890218");
+            user = Api.login("livehl@126.com", "890218");
         } catch (ApiException e) {
             onApiException(e);
         }

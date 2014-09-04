@@ -1,21 +1,28 @@
 package demo.p2p.hl.data;
 
-public class Loan {
+import demo.p2p.hl.base.AdapterData;
+
+public class Loan implements AdapterData {
     
+    //3=投标中,4=还款中,5=已流标，6已还款，7已逾期，8逾期已赔付,9逾期已偿还，10逾期已赔付偿还
+    // 目前只处理  3 和 !3 就行了..... 
+    public static final int STATUS_LOAN_ING = 3;
+
+            
     /**
      * 借款金额
      */
     public float amount;
     
     /**
-     * 担保者
+     * 担保者(可为空)
      */
     public String assure;
     
     /**
      * 创建时间
      */
-    public String createDate;
+    public long createDate;
     
     /**
      * id

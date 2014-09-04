@@ -17,6 +17,9 @@ import demo.p2p.hl.util.Sp;
  */
 public class HttpHelper {
 
+    public static final int TIMEOUT_READ = 15000;
+    public static final int TIMEOUT_CONNECT = 5000;
+    
     private static HttpHelper mInstance;
     private Context mContext;
     private Sp mSp;
@@ -45,6 +48,9 @@ public class HttpHelper {
         if (cookie != null) {
             request.header("Cookie", cookie);
         }
+        request.connectTimeout(TIMEOUT_CONNECT);
+        request.readTimeout(TIMEOUT_READ);
+        
         return result(request);
     }
     
@@ -66,26 +72,31 @@ public class HttpHelper {
     public String result(HttpRequest request) throws ApiException {
         
         try {
+            
             Lg.d("http", request.url().toString());
+            
+            String body = request.body();
+            int code = request.code();
+            
             if (request.ok()) {
                 tryToSaveAuth(request);
-                String result = request.body();
-                Lg.d("http", "200:" + result);
-                return result;
+                Lg.d("http", "200:" + body);
+                return body;
             }
             
             if (request.unAuthorized()) {
-                Lg.d("http", "401");
+                Lg.e("http", "401");
                 throw new ApiAuthorizedException();
             }
             
             if (request.serverError()) {
                 // {code:500, msg:xxxxx}
-                String body = request.body();
                 String msg = JsonUtil.getString(body, "msg");
-                Lg.d("http", "500:" + body);
+                Lg.e("http", "500:" + body);
                 throw new ApiException(msg != null ? msg :  "未知的服务端错误");
             }
+            
+            Lg.e("http", code + ":" + request.url().toString() + "\nbody:" + body);
             
         } catch (HttpRequestException e) {
             throw new ApiException("网络连接异常");

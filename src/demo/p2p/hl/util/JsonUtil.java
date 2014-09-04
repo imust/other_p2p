@@ -27,5 +27,9 @@ public class JsonUtil {
         return new Gson().fromJson(json, type);
     }
     
+    public static <T> T getObject(String json, Class<T> clazz) {
+        return new Gson().fromJson(json, clazz);
+    }
+    
     
 }

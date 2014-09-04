@@ -1,10 +1,13 @@
 package demo.p2p.hl.http.api;
 
-import com.google.gson.GsonBuilder;
+import java.util.List;
 
+import demo.p2p.hl.data.Loan;
+import demo.p2p.hl.data.LoanListResult;
 import demo.p2p.hl.data.User;
 import demo.p2p.hl.data.UserResult;
 import demo.p2p.hl.http.HttpHelper;
+import demo.p2p.hl.util.JsonUtil;
 
 public class Api {
     
@@ -23,13 +26,13 @@ public class Api {
         String result = 
         HttpHelper.getDefault().get(createUri("user", "logins"), true, 
                 "username", username , "pwd", password);
-        User user = new GsonBuilder().create().fromJson(result, UserResult.class).bean;
-        return user;
+        return JsonUtil.getObject(result, UserResult.class).bean;
     }
     
-    public static void getLoanList() throws ApiException {
+    public static List<Loan> getLoanList() throws ApiException {
         String result = 
-                HttpHelper.getDefault().get(createUri("loan"), true, "page", 1);
+        HttpHelper.getDefault().get(createUri("loan"), true, "page", 1);
+        return JsonUtil.getObject(result, LoanListResult.class).list;
     }
     
     
