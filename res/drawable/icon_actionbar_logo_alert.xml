@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item android:drawable="@drawable/icon_actionbar_logo"
+        android:right="4dp"
+        android:top="4dp"
+        android:bottom="4dp"
+        android:left="0dp"
+        >
+       
+    </item>
+    <item
+        android:bottom="27.0dip"
+        android:drawable="@drawable/icon_alert"
+        android:left="23.0dip"
+        android:right="0.0dip"
+        android:top="0.0dip">
+    </item>
+
+</layer-list>

@@ -6,7 +6,6 @@ import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.ViewById;
 
-import android.content.Intent;
 import android.widget.EditText;
 import demo.p2p.hl.R;
 import demo.p2p.hl.app.UserSession;
@@ -26,7 +25,7 @@ public class ActLogin extends BaseActivity {
     
     @AfterViews
     void init() {
-        
+        getActionBar().setIcon(R.drawable.icon_actionbar_logo);
     }
     
     @Click
@@ -42,7 +41,7 @@ public class ActLogin extends BaseActivity {
         
         if (user != null) {
             UserSession.open(user);
-            startActivity(new Intent(this, ActMain_.class));
+            ActMain.start(this);
             finish();
         }
     }

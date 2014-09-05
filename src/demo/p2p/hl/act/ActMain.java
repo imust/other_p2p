@@ -6,6 +6,8 @@ import org.androidannotations.annotations.UiThread;
 import org.androidannotations.annotations.ViewById;
 
 import android.app.Fragment;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.support.v4.widget.DrawerLayout;
@@ -29,6 +31,10 @@ public class ActMain extends BaseActivity {
     DrawerLayout mDrawer;
     
     ActionBarDrawerToggle mDrawerToggle;
+    
+    public static void start(Context context) {
+        context.startActivity(new Intent(context, ActMain_.class));
+    }
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,13 +61,13 @@ public class ActMain extends BaseActivity {
     private void initDrawer() {
         
         mDrawerToggle = new ActionBarDrawerToggle(this, 
-                mDrawer, R.drawable.ic_drawer, R.string.drawer_open, R.string.drawer_close);
+                mDrawer, R.drawable.icon_drawer, R.string.drawer_open, R.string.drawer_close);
         
         mDrawer.setDrawerListener(mDrawerToggle);
         
         getActionBar().setDisplayHomeAsUpEnabled(true);  
         getActionBar().setHomeButtonEnabled(true);  
-        getActionBar().setIcon(R.drawable.ic_title_logo);
+        getActionBar().setIcon(R.drawable.icon_actionbar_logo_alert);
     }
     
     

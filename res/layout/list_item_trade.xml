@@ -1,0 +1,77 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/layout.m.m"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/mTitle"
+        style="@style/layout.m.w"
+        android:paddingLeft="@dimen/p10"
+        android:paddingTop="@dimen/p10"
+        android:textColor="@color/text_black"
+        android:textSize="@dimen/t20" />
+
+    <LinearLayout
+        style="@style/layout.m.w"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/p10"
+        android:paddingRight="@dimen/p10" >
+
+        <TextView
+            android:id="@+id/mRow"
+            style="@style/layout.w.w"
+            android:text="年利率:"
+            android:textColor="@color/text_grey"
+            android:textSize="@dimen/t16" />
+
+        <TextView
+            android:id="@+id/mTerm"
+            style="@style/layout.w.w"
+            android:paddingLeft="@dimen/p20"
+            android:text="借款期限:"
+            android:textColor="@color/text_grey"
+            android:textSize="@dimen/t16" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/s70"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/p5"
+        android:paddingLeft="@dimen/p10"
+        android:paddingRight="@dimen/p10"
+        android:paddingTop="@dimen/p5" >
+
+        <TextView
+            android:id="@+id/mProgressText"
+            style="@style/layout.w.w"
+            android:layout_width="@dimen/s80"
+            android:textColor="@color/text_grey"
+            android:textSize="@dimen/t25" />
+
+        <TextView
+            android:id="@+id/mAmount"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="@color/text_blue"
+            android:textSize="@dimen/t25" />
+
+        <Button
+            style="@style/button_blue"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/s30" />
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/mProgressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:max="100"
+        android:progress="30"
+        android:progressDrawable="@drawable/bg_progress" />
+
+</LinearLayout>
