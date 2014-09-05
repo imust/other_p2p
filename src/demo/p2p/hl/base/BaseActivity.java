@@ -5,6 +5,7 @@ import org.androidannotations.annotations.UiThread;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.MenuItem;
 import demo.p2p.hl.R;
 import demo.p2p.hl.http.api.ApiAuthorizedException;
 import demo.p2p.hl.http.api.ApiException;
@@ -17,8 +18,19 @@ public class BaseActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        
-        getActionBar().setCustomView(R.layout.list_item_loan);
+        initActionBar();
+    }
+    
+    
+    private void initActionBar() {
+        getActionBar().setIcon(R.drawable.icon_actionbar_logo);
+//        getActionBar().setIcon(R.drawable.icon_actionbar_logo_alert);
+        getActionBar().setDisplayHomeAsUpEnabled(true);
+    }
+    
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        return super.onOptionsItemSelected(item);
     }
     
     @UiThread

@@ -7,6 +7,8 @@ import org.androidannotations.annotations.ViewById;
 
 import android.widget.TextView;
 import demo.p2p.hl.R;
+import demo.p2p.hl.act.ActAcc;
+import demo.p2p.hl.act.ActAcc_;
 import demo.p2p.hl.app.UserSession;
 import demo.p2p.hl.base.BaseFragment;
 
@@ -27,6 +29,11 @@ public class FragPerson extends BaseFragment {
         mName.setText(UserSession.get().getUser().realName);
         mPhone.setText("********" + UserSession.get().getUser().phone);
         mBalance.setText("账户余额: " + UserSession.get().getUser().balance);
+    }
+    
+    @Click(R.id.mAcc)
+    void onAccClick() {
+        ActAcc.start(getActivity());
     }
     
     @Click(R.id.mBalance)

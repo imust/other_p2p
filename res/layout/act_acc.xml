@@ -5,7 +5,6 @@
     android:padding="@dimen/p10" >
 
     <LinearLayout
-        android:id="@+id/mAcc"
         style="@style/layout.m.w"
         android:background="@drawable/bg_item_single_selector"
         android:clickable="true"

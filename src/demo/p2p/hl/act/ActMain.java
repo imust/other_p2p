@@ -61,7 +61,7 @@ public class ActMain extends BaseActivity {
     private void initDrawer() {
         
         mDrawerToggle = new ActionBarDrawerToggle(this, 
-                mDrawer, R.drawable.icon_drawer, R.string.drawer_open, R.string.drawer_close);
+                mDrawer, R.drawable.icon_nav_drawer, R.string.drawer_open, R.string.drawer_close);
         
         mDrawer.setDrawerListener(mDrawerToggle);
         
