@@ -30,6 +30,11 @@ public class BaseActivity extends Activity {
     
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+    	case android.R.id.home:
+		    finish();
+		    break;
+        }
         return super.onOptionsItemSelected(item);
     }
     

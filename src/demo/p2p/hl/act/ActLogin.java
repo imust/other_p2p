@@ -6,6 +6,8 @@ import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.ViewById;
 
+import android.content.Context;
+import android.content.Intent;
 import android.widget.EditText;
 import demo.p2p.hl.R;
 import demo.p2p.hl.app.UserSession;
@@ -23,9 +25,34 @@ public class ActLogin extends BaseActivity {
     @ViewById
     EditText mPassword;
     
+    public static void start(Context context) {
+        UserSession.get().clear();
+        Intent intent = new Intent(context, ActLogin_.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+        context.startActivity(intent);
+    }
+    
+    @Background
     @AfterViews
     void init() {
-        getActionBar().setIcon(R.drawable.icon_actionbar_logo);
+        if (UserSession.get().hasSession()) {
+            reLogin();
+        }
+    }
+    
+    @Background
+    void reLogin() {
+        User user = null;
+        try {
+            user = Api.getUser();
+        } catch (ApiException e) {
+            onApiException(e);
+        }
+        
+        if (user != null) {
+            UserSession.get().setUser(user);
+            ActMain.start(this);
+        }
     }
     
     @Click
@@ -40,9 +67,8 @@ public class ActLogin extends BaseActivity {
         }
         
         if (user != null) {
-            UserSession.open(user);
+            UserSession.get().setUser(user);
             ActMain.start(this);
-            finish();
         }
     }
     

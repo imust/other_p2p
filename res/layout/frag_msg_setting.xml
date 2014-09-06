@@ -1,0 +1,76 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/layout.m.m"
+    android:orientation="vertical"
+    android:padding="@dimen/p10" >
+
+
+    <TextView 
+        style="@style/layout.m.w"
+        android:text="消息类型"
+        android:textColor="@color/text_black"
+        android:textSize="@dimen/t20"
+        android:padding="@dimen/p10"
+        />
+    
+    
+    <CheckBox 
+        android:id="@+id/mEmail"
+        style="@style/layout.m.w"
+        android:layout_height="@dimen/s50"
+        android:layout_gravity="center_vertical"
+        android:background="@drawable/bg_item_top"
+        android:button="@drawable/checkbox_selector"
+        android:text="邮件"
+        android:textColor="@color/text_blue"
+        android:textSize="@dimen/t18"
+        />
+    <CheckBox 
+        android:id="@+id/mWeiXin"
+        style="@style/layout.m.w"
+        android:layout_height="@dimen/s50"
+        android:layout_gravity="center_vertical"
+        android:background="@drawable/bg_item_middle"
+        android:button="@drawable/checkbox_selector"
+        android:text="微信"
+        android:textColor="@color/text_blue"
+        android:textSize="@dimen/t18"
+        />
+    <CheckBox 
+        android:id="@+id/mSms"
+        style="@style/layout.m.w"
+        android:layout_height="@dimen/s50"
+        android:layout_gravity="center_vertical"
+        android:background="@drawable/bg_item_bottom"
+        android:button="@drawable/checkbox_selector"
+        android:text="短信"
+        android:textColor="@color/text_blue"
+        android:textSize="@dimen/t18"
+        />
+    
+    
+    
+    <TextView 
+        style="@style/layout.m.w"
+        android:text="免打扰设置"
+        android:textColor="@color/text_black"
+        android:textSize="@dimen/t20"
+        android:padding="@dimen/p10"
+        />
+    
+    <CheckBox 
+        android:id="@+id/mHumanity"
+        style="@style/layout.m.w"
+        android:layout_height="@dimen/s50"
+        android:layout_gravity="center_vertical"
+        android:background="@drawable/bg_item_single"
+        android:button="@drawable/checkbox_selector"
+        android:text="免打扰(22:00-次日8:00)"
+        android:textColor="@color/text_blue"
+        android:textSize="@dimen/t18"
+        />
+
+    
+    
+    
+</LinearLayout>

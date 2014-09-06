@@ -15,6 +15,8 @@ import android.view.MenuItem;
 import de.greenrobot.event.EventBus;
 import demo.p2p.hl.R;
 import demo.p2p.hl.base.BaseActivity;
+import demo.p2p.hl.event.EventDrawerChange;
+import demo.p2p.hl.event.EventExit;
 import demo.p2p.hl.event.EventMenuChange;
 import demo.p2p.hl.frag.FragHome_;
 import demo.p2p.hl.view.MenuView;
@@ -33,7 +35,9 @@ public class ActMain extends BaseActivity {
     ActionBarDrawerToggle mDrawerToggle;
     
     public static void start(Context context) {
-        context.startActivity(new Intent(context, ActMain_.class));
+        Intent intent = new Intent(context, ActMain_.class);
+    	intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+    	context.startActivity(intent);
     }
     
     @Override
@@ -87,6 +91,18 @@ public class ActMain extends BaseActivity {
     
     public void onEventMainThread(EventMenuChange event) {
         replaceFragment(event.fragment);
+    }
+    
+    public void onEventMainThread(EventDrawerChange event) {
+        if (event.open) {
+            mDrawer.openDrawer(mMenuView);
+        } else {
+            mDrawer.closeDrawer(mMenuView);
+        }
+    }
+    
+    public  void onEventMainThread(EventExit event) {
+        finish();
     }
     
     @UiThread

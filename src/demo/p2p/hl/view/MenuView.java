@@ -12,9 +12,12 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import de.greenrobot.event.EventBus;
 import demo.p2p.hl.R;
+import demo.p2p.hl.act.ActLogin_;
 import demo.p2p.hl.app.UserSession;
+import demo.p2p.hl.event.EventExit;
 import demo.p2p.hl.event.EventMenuChange;
 import demo.p2p.hl.frag.FragHome_;
+import demo.p2p.hl.frag.FragMsgSetting_;
 import demo.p2p.hl.frag.FragPerson_;
 import demo.p2p.hl.frag.FragTrade_;
 
@@ -64,17 +67,17 @@ public class MenuView extends LinearLayout {
     
     @Click
     void setting() {
-        
+        post(FragMsgSetting_.builder().build());
     }
     
     @Click
     void change() {
-        
+        ActLogin_.start(getContext());
     }
     
     @Click
     void exit() {
-        
+        EventBus.getDefault().post(new EventExit());
     }
     
 }

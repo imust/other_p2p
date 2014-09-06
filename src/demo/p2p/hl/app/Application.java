@@ -1,6 +1,7 @@
 package demo.p2p.hl.app;
 
 import demo.p2p.hl.http.HttpHelper;
+import demo.p2p.hl.http.api.Api;
 import demo.p2p.hl.util.ToastUtil;
 
 /**
@@ -17,6 +18,7 @@ public class Application extends android.app.Application {
         super.onCreate();
         HttpHelper.getDefault().init(this);
         ToastUtil.getDefault().init(this);
+        UserSession.get().init(this);
     }
  
     

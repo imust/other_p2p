@@ -8,7 +8,6 @@ import org.androidannotations.annotations.ViewById;
 import android.widget.TextView;
 import demo.p2p.hl.R;
 import demo.p2p.hl.act.ActAcc;
-import demo.p2p.hl.act.ActAcc_;
 import demo.p2p.hl.app.UserSession;
 import demo.p2p.hl.base.BaseFragment;
 
@@ -41,13 +40,9 @@ public class FragPerson extends BaseFragment {
         
     }
     
-    @Click(R.id.mTradeRecord)
-    void onTradeRecordClick() {
+    @Click(R.id.mLoadRecord)
+    void onLoadRecordClick() {
         
     }
     
-    @Click(R.id.mWithDraw)
-    void onWithDrawClick() {
-        
-    }
 }

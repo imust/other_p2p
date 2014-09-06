@@ -2,12 +2,12 @@ package demo.p2p.hl.http;
 
 import android.app.Application;
 import android.content.Context;
+import demo.p2p.hl.app.UserSession;
 import demo.p2p.hl.http.HttpRequest.HttpRequestException;
 import demo.p2p.hl.http.api.ApiAuthorizedException;
 import demo.p2p.hl.http.api.ApiException;
 import demo.p2p.hl.util.JsonUtil;
 import demo.p2p.hl.util.Lg;
-import demo.p2p.hl.util.Sp;
 
 /**
  * http辅助类, 实现一个统一的认证及http基本配置
@@ -22,7 +22,6 @@ public class HttpHelper {
     
     private static HttpHelper mInstance;
     private Context mContext;
-    private Sp mSp;
     
     public synchronized static HttpHelper getDefault() {
         if (mInstance == null) {
@@ -35,7 +34,6 @@ public class HttpHelper {
     
     public void init(Application context) {
         mContext = context;
-        mSp = new Sp(context);
     }
     
     /**
@@ -44,7 +42,7 @@ public class HttpHelper {
      * @return
      */
     public String auth(HttpRequest request) throws ApiException {
-        String cookie = mSp.getString(Sp.SP_USER_SESSION, null);
+        String cookie = UserSession.get().getSession();
         if (cookie != null) {
             request.header("Cookie", cookie);
         }
@@ -57,10 +55,10 @@ public class HttpHelper {
     /**
      * 保存登录认证
      */
-    public void tryToSaveAuth(HttpRequest request) {
+    public void saveAuth(HttpRequest request) {
         String setCookie = request.header("Set-Cookie");
         if (setCookie != null) {
-            new Sp(mContext).putString(Sp.SP_USER_SESSION, setCookie);
+            UserSession.get().setSession(setCookie);
         }
     }
     
@@ -79,7 +77,7 @@ public class HttpHelper {
             int code = request.code();
             
             if (request.ok()) {
-                tryToSaveAuth(request);
+                saveAuth(request);
                 Lg.d("http", "200:" + body);
                 return body;
             }
@@ -111,6 +109,10 @@ public class HttpHelper {
     
     public String get(CharSequence url, boolean isEncode, Object... params) throws ApiException {
         return auth(HttpRequest.get(url, isEncode, params));
+    }
+    
+    public String post(CharSequence url, boolean isEncode, Object... params) throws ApiException {
+        return auth(HttpRequest.post(url, isEncode, params));
     }
     
     
