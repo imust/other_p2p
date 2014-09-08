@@ -1,0 +1,11 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/layout.m.m"
+    >
+    
+    <WebView 
+        style="@style/layout.m.m"
+        android:id="@+id/mWebView"
+        />
+
+</LinearLayout>

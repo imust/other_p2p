@@ -51,6 +51,12 @@
         style="@style/text_menu"
         android:drawableLeft="@drawable/icon_menu_person_center"
         android:text="个人中心" />
+    
+   	<TextView
+        android:id="@+id/msg"
+        style="@style/text_menu"
+        android:drawableLeft="@drawable/icon_menu_message"
+        android:text="消息中心" />
 
     <View
         android:layout_width="match_parent"

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+
+    <style name="Theme.Actionbar" parent="@android:style/Theme.Holo.Light.DarkActionBar">
+        <item name="android:actionDropDownStyle">@style/DropDownNav.Actionbar</item>
+        <item name="android:actionBarStyle">@style/ActionBar.Solid.Actionbar</item>
+    </style>
+
+    <style name="ActionBar.Solid.Actionbar" parent="@android:style/Widget.Holo.Light.ActionBar">
+        <item name="android:background">@drawable/bg_action_bar</item>
+       	<item name="android:titleTextStyle">@style/Text.Actionbar</item>
+    </style>
+
+    <style name="Text.Actionbar" parent="">
+        <item name="android:textSize">@dimen/t18</item>
+        <item name="android:textColor">@color/text_white</item>
+    </style>
+    
+    <style name="DropDownNav.Actionbar" parent="@android:style/Widget.Holo.Light.Spinner">
+        <item name="android:background">@drawable/bg_action_bar_nav</item>
+    </style>
+
+
+</resources>

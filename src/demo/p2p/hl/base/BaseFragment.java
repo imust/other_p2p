@@ -26,4 +26,8 @@ public class BaseFragment extends Fragment {
     public void post(Object event) {
         EventBus.getDefault().post(event);
     }
+    
+    public void setTitle(CharSequence title) {
+        getActivity().setTitle(title);
+    }
 }

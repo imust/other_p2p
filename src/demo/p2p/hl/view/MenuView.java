@@ -18,6 +18,7 @@ import demo.p2p.hl.event.EventExit;
 import demo.p2p.hl.event.EventMenuChange;
 import demo.p2p.hl.frag.FragHome_;
 import demo.p2p.hl.frag.FragMsgSetting_;
+import demo.p2p.hl.frag.FragMsg_;
 import demo.p2p.hl.frag.FragPerson_;
 import demo.p2p.hl.frag.FragTrade_;
 
@@ -26,6 +27,9 @@ public class MenuView extends LinearLayout {
 
     @ViewById
     TextView mName;
+    
+    @ViewById(R.id.msg)
+    TextView mMsg;
     
     public MenuView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
@@ -78,6 +82,21 @@ public class MenuView extends LinearLayout {
     @Click
     void exit() {
         EventBus.getDefault().post(new EventExit());
+    }
+    
+    @Click
+    void msg() {
+        post(FragMsg_.builder().build());
+    }
+    
+    public void setNewMessageCount(int count) {
+        if (count > 0) {
+            mMsg.setText(String.format("%s条新消息", count));
+            mMsg.setTextColor(getResources().getColor(R.color.bg_orange));
+        } else {
+            mMsg.setText("消息中心");
+            mMsg.setTextColor(getResources().getColor(R.color.text_white));
+        }
     }
     
 }

@@ -1,6 +1,9 @@
 package demo.p2p.hl.act;
 
+import java.util.List;
+
 import org.androidannotations.annotations.AfterViews;
+import org.androidannotations.annotations.Background;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.UiThread;
 import org.androidannotations.annotations.ViewById;
@@ -15,10 +18,14 @@ import android.view.MenuItem;
 import de.greenrobot.event.EventBus;
 import demo.p2p.hl.R;
 import demo.p2p.hl.base.BaseActivity;
+import demo.p2p.hl.data.Message;
 import demo.p2p.hl.event.EventDrawerChange;
 import demo.p2p.hl.event.EventExit;
 import demo.p2p.hl.event.EventMenuChange;
 import demo.p2p.hl.frag.FragHome_;
+import demo.p2p.hl.http.api.Api;
+import demo.p2p.hl.http.api.ApiException;
+import demo.p2p.hl.util.Lg;
 import demo.p2p.hl.view.MenuView;
 
 @EActivity(R.layout.act_main)
@@ -52,6 +59,12 @@ public class ActMain extends BaseActivity {
         EventBus.getDefault().unregister(this);
     }
     
+    @Override
+    protected void onResume() {
+        super.onResume();
+        checkMessage();
+    }
+    
     @AfterViews
     void init() {
         initCurrentPage();
@@ -71,7 +84,7 @@ public class ActMain extends BaseActivity {
         
         getActionBar().setDisplayHomeAsUpEnabled(true);  
         getActionBar().setHomeButtonEnabled(true);  
-        getActionBar().setIcon(R.drawable.icon_actionbar_logo_alert);
+        getActionBar().setIcon(R.drawable.icon_actionbar_logo);
     }
     
     
@@ -116,7 +129,25 @@ public class ActMain extends BaseActivity {
         mDrawer.closeDrawer(mMenuView);
     }
     
+    @Background
+    public void checkMessage() {
+        try {
+            List<Message> list = Api.getMessageList(true);
+            refreshMsgUIStatus(list.size());
+        } catch (ApiException e) {
+            Lg.e("checkMessage", e.getErrorMessage());
+        }
+    }
 
+    @UiThread
+    public void refreshMsgUIStatus(int newMsgCount) {
+        getActionBar().setIcon(newMsgCount > 0 ? 
+                R.drawable.icon_actionbar_logo_alert :
+                    R.drawable.icon_actionbar_logo);
+        
+        
+        mMenuView.setNewMessageCount(newMsgCount);
+    }
     
     
     

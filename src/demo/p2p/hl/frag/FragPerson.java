@@ -8,6 +8,9 @@ import org.androidannotations.annotations.ViewById;
 import android.widget.TextView;
 import demo.p2p.hl.R;
 import demo.p2p.hl.act.ActAcc;
+import demo.p2p.hl.act.ActBanks;
+import demo.p2p.hl.act.ActBids;
+import demo.p2p.hl.act.ActRecharge;
 import demo.p2p.hl.app.UserSession;
 import demo.p2p.hl.base.BaseFragment;
 
@@ -40,9 +43,19 @@ public class FragPerson extends BaseFragment {
         
     }
     
-    @Click(R.id.mLoadRecord)
-    void onLoadRecordClick() {
-        
+    @Click(R.id.mBankCard)
+    void onBankCardClick() {
+        ActBanks.start(getActivity());
+    }
+    
+    @Click(R.id.mRecharge)
+    void onRechargeClick() {
+        ActRecharge.start(getActivity());
+    }
+    
+    @Click(R.id.mBid)
+    void onBidClick() {
+        ActBids.start(getActivity());
     }
     
 }

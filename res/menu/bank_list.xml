@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" 
+    >
+
+    <item
+        android:title="新增银行卡"
+        android:icon="@drawable/icon_nav_new"
+        android:id="@+id/add"
+        android:showAsAction="always"
+        >
+    </item>
+
+</menu>

@@ -2,8 +2,15 @@ package demo.p2p.hl.http.api;
 
 import java.util.List;
 
+import demo.p2p.hl.data.Bank;
+import demo.p2p.hl.data.BankListResult;
+import demo.p2p.hl.data.Bid;
+import demo.p2p.hl.data.BidListResult;
 import demo.p2p.hl.data.Loan;
 import demo.p2p.hl.data.LoanListResult;
+import demo.p2p.hl.data.Message;
+import demo.p2p.hl.data.MessageListResult;
+import demo.p2p.hl.data.RechargeResult;
 import demo.p2p.hl.data.User;
 import demo.p2p.hl.data.UserResult;
 import demo.p2p.hl.http.HttpHelper;
@@ -29,6 +36,18 @@ public class Api {
         return JsonUtil.getObject(result, UserResult.class).bean;
     }
     
+    /**
+     * 充值
+     * @return
+     * @throws ApiException
+     */
+    public static String recharge() throws ApiException {
+        String result =
+        HttpHelper.getDefault().post(createUri("pay", "recharge_ajax"), 
+                "amount", 100);
+        return JsonUtil.getObject(result, RechargeResult.class).bean.url;
+    }
+    
     
     /**
      * 获取当前登录用户
@@ -52,6 +71,39 @@ public class Api {
         return JsonUtil.getObject(result, LoanListResult.class).list;
     }
     
+    /**
+     * 投标记录/ 最近待还
+     * @param near 是否只显示最近待还
+     * @return
+     * @throws ApiException
+     */
+    public static List<Bid> getBidList(boolean near) throws ApiException {
+        String result = 
+        HttpHelper.getDefault().get(createUri("user", "getUserBids"), true, "page", 1, "near", near);
+        return JsonUtil.getObject(result, BidListResult.class).list;
+    }
+    
+    /**
+     * 查询银行卡列表
+     * @return
+     * @throws ApiException
+     */
+    public static List<Bank> getBankList() throws ApiException {
+        String result = 
+        HttpHelper.getDefault().get(createUri("user", "bank"));
+        return JsonUtil.getObject(result, BankListResult.class).list;
+    }
+    
+    /**
+     * 获取所有消息
+     * @return
+     * @throws ApiException
+     */
+    public static List<Message> getMessageList(boolean unreadOnly) throws ApiException {
+        String result = 
+        HttpHelper.getDefault().get(createUri("user", "message"), true, "page", 1, "unread", unreadOnly);
+        return JsonUtil.getObject(result, MessageListResult.class).list;
+    }
     
     /**
      * 更新消息设置
@@ -60,11 +112,18 @@ public class Api {
      * @param messageSetting 开启了的消息类型,  sms|weixin|email
      */
     public static void updateMsgSetting(boolean humanity, String messageSetting) throws ApiException {
-        HttpHelper.getDefault().post(createUri("user", "messageSetting"), true, 
+        HttpHelper.getDefault().post(createUri("user", "messageSetting"), 
                 "page", 1, "humanity", humanity, "messageSetting", messageSetting);
     }
     
-    
+    /**
+     * 标记消息已读
+     * @return
+     * @throws ApiException
+     */
+    public static void updateMessageStatus() throws ApiException {
+        HttpHelper.getDefault().post(createUri("user", "message", "-1"),"all", true);
+    }
     
     
     public static String createUri(String... str) {

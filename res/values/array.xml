@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="bid_list">
+        <item>标的记录</item>
+        <item>最近待还</item>
+    </string-array>
+</resources>

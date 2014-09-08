@@ -16,7 +16,7 @@
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/Theme.Actionbar" >
         <activity
             android:name="demo.p2p.hl.act.ActLogin_"
             android:label="@string/app_name"
@@ -32,8 +32,18 @@
             android:screenOrientation="portrait" />
         <activity
             android:name="demo.p2p.hl.act.ActAcc_"
-            android:screenOrientation="portrait" 
-            />
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="demo.p2p.hl.act.ActBids_"
+            android:screenOrientation="portrait" />
+         <activity
+            android:name="demo.p2p.hl.act.ActRecharge_"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="demo.p2p.hl.act.ActBanks_"
+            android:screenOrientation="portrait" />
+        
+        
     </application>
 
 </manifest>

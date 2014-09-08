@@ -41,15 +41,14 @@ public class HttpHelper {
      * @param request
      * @return
      */
-    public String auth(HttpRequest request) throws ApiException {
+    public HttpRequest auth(HttpRequest request) throws ApiException {
         String cookie = UserSession.get().getSession();
         if (cookie != null) {
             request.header("Cookie", cookie);
         }
         request.connectTimeout(TIMEOUT_CONNECT);
         request.readTimeout(TIMEOUT_READ);
-        
-        return result(request);
+        return request;
     }
     
     /**
@@ -104,15 +103,22 @@ public class HttpHelper {
     }
     
     public String get(CharSequence url) throws ApiException {
-        return auth(HttpRequest.get(url));
+        return result(auth(HttpRequest.get(url)));
     }
     
     public String get(CharSequence url, boolean isEncode, Object... params) throws ApiException {
-        return auth(HttpRequest.get(url, isEncode, params));
+        return result(auth(HttpRequest.get(url, isEncode, params)));
     }
     
-    public String post(CharSequence url, boolean isEncode, Object... params) throws ApiException {
-        return auth(HttpRequest.post(url, isEncode, params));
+    public String post(CharSequence url, Object... params) throws ApiException {
+        HttpRequest request = HttpRequest.post(url);
+        request = auth(request);
+        if (params != null) {
+            for (int i=0 ; i<params.length / 2;i++) {
+                request.form(params[i*2], params[i*2+1]);
+            }
+        }
+        return result(request);
     }
     
     

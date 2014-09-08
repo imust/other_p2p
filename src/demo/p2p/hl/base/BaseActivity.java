@@ -6,6 +6,7 @@ import org.androidannotations.annotations.UiThread;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.MenuItem;
+import de.greenrobot.event.EventBus;
 import demo.p2p.hl.R;
 import demo.p2p.hl.http.api.ApiAuthorizedException;
 import demo.p2p.hl.http.api.ApiException;
@@ -46,7 +47,10 @@ public class BaseActivity extends Activity {
         } else {
             ToastUtil.getDefault().show(ex.getErrorMessage());
         }
-                
+    }
+    
+    public void post(Object event) {
+        EventBus.getDefault().post(event);
     }
     
 }
