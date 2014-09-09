@@ -143,7 +143,7 @@ public class ActMain extends BaseActivity {
     public void refreshMsgUIStatus(int newMsgCount) {
         getActionBar().setIcon(newMsgCount > 0 ? 
                 R.drawable.icon_actionbar_logo_alert :
-                    R.drawable.icon_actionbar_logo);
+                    R.drawable.icon_actionbar_logo_common);
         
         
         mMenuView.setNewMessageCount(newMsgCount);

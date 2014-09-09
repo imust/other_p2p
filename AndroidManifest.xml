@@ -40,8 +40,18 @@
             android:name="demo.p2p.hl.act.ActRecharge_"
             android:screenOrientation="portrait" />
         <activity
-            android:name="demo.p2p.hl.act.ActBanks_"
+            android:name="demo.p2p.hl.act.ActBankCardList_"
             android:screenOrientation="portrait" />
+        <activity
+            android:windowSoftInputMode="adjustResize"
+            android:name="demo.p2p.hl.act.ActBankAdd_"
+            android:screenOrientation="portrait" />
+        
+        <activity
+            android:name="demo.p2p.hl.act.ActBankList_"
+            android:screenOrientation="portrait" />
+        
+        
         
         
     </application>

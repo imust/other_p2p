@@ -1,55 +1,30 @@
 package demo.p2p.hl.data;
 
-import com.google.gson.annotations.SerializedName;
+import java.io.Serializable;
+import java.util.ArrayList;
 
 import demo.p2p.hl.base.AdapterData;
 
-public class Bank implements AdapterData {
+public class Bank implements AdapterData, Serializable {
     
-    /**
-     * 卡号后四位
-     */
-    public String card;
+    public static final String[] BANKS = {"中国工商银行","招商银行",
+        "中国建设银行","中国农业银行","中国银行","浦发银行","深圳发展银行",
+        "兴业银行","北京银行","中国光大银行","交通银行","中国民生银行",
+        "中信银行","广发银行","平安银行","邮政储蓄银行","江苏银行",
+        "上海农商银行","上海银行","华夏银行"};
     
-    /**
-     * 银行
-     */
-    public String bankName;
+    public String name;
     
-    /**
-     * 省份
-     */
-    public String province;
+    public Bank(String name) {
+        this.name = name;
+    }
     
-    /**
-     * 城市
-     */
-    public String city;
-    
-    /**
-     * 开户行........尼玛这什么名字
-     */
-    public String add;
-    
-    /**
-     * 是否默认提现银行卡 
-     */
-    @SerializedName("default")
-    public boolean isDefault;
-    
-    /**
-     * user id 
-     */
-    public int uid;
-    
-    /**
-     * 验证码
-     */
-    public String phoneCode;
-    
-    /**
-     * id 
-     */
-    public int id;
+    public static ArrayList<Bank> createDefault() {
+        ArrayList<Bank> banks = new ArrayList<Bank>();
+        for (int i=0;i<BANKS.length;i++) {
+            banks.add(new Bank(BANKS[i]));
+        }
+        return banks;
+    }
     
 }

@@ -12,26 +12,26 @@ import android.widget.TextView;
 import de.greenrobot.event.EventBus;
 import demo.p2p.hl.R;
 import demo.p2p.hl.base.AdapterView;
-import demo.p2p.hl.data.Bank;
+import demo.p2p.hl.data.Province;
 import demo.p2p.hl.event.EventBankSelect;
 
 @EViewGroup(R.layout.list_item_simple_string)
-public class ItemViewBank extends LinearLayout implements AdapterView<Bank>{
+public class ItemViewProvince extends LinearLayout implements AdapterView<Province>{
 
     @ViewById
     TextView mContent;
     
-    private Bank mData;
+    private Province mData;
     
-    public ItemViewBank(Context context, AttributeSet attrs, int defStyle) {
+    public ItemViewProvince(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
     }
 
-    public ItemViewBank(Context context, AttributeSet attrs) {
+    public ItemViewProvince(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public ItemViewBank(Context context) {
+    public ItemViewProvince(Context context) {
         super(context);
     }
 
@@ -41,7 +41,7 @@ public class ItemViewBank extends LinearLayout implements AdapterView<Bank>{
     }
 
     @Override
-    public void bindData(Bank data) {
+    public void bindData(Province data) {
         mData = data;
         bindContent();
     }
@@ -52,7 +52,7 @@ public class ItemViewBank extends LinearLayout implements AdapterView<Bank>{
     
     @Click(R.id.mContent)
     public void onContentClick() {
-        EventBus.getDefault().postSticky(new EventBankSelect(mData));
+//        EventBus.getDefault().postSticky(new EventBankSelect(mData));
     }
     
     

@@ -12,7 +12,7 @@ import demo.p2p.hl.R;
 import demo.p2p.hl.base.AdapterView;
 import demo.p2p.hl.data.Message;
 
-@EViewGroup(R.layout.list_item_msg)
+@EViewGroup(R.layout.list_item_simple_string)
 public class ItemViewMsg extends LinearLayout implements AdapterView<Message>{
 
     @ViewById

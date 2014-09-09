@@ -8,7 +8,7 @@ import org.androidannotations.annotations.ViewById;
 import android.widget.TextView;
 import demo.p2p.hl.R;
 import demo.p2p.hl.act.ActAcc;
-import demo.p2p.hl.act.ActBanks;
+import demo.p2p.hl.act.ActBankCardList;
 import demo.p2p.hl.act.ActBids;
 import demo.p2p.hl.act.ActRecharge;
 import demo.p2p.hl.app.UserSession;
@@ -45,7 +45,7 @@ public class FragPerson extends BaseFragment {
     
     @Click(R.id.mBankCard)
     void onBankCardClick() {
-        ActBanks.start(getActivity());
+        ActBankCardList.start(getActivity());
     }
     
     @Click(R.id.mRecharge)

@@ -53,4 +53,12 @@ public class BaseActivity extends Activity {
         EventBus.getDefault().post(event);
     }
     
+    public void registerEventBus() {
+        EventBus.getDefault().register(this);
+    }
+    
+    public void unregisterEventBus() {
+        EventBus.getDefault().unregister(this);
+    }
+    
 }

@@ -1,0 +1,126 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/layout.m.m" >
+
+    <LinearLayout
+        style="@style/layout.m.m"
+        android:orientation="vertical"
+        android:padding="@dimen/p10" >
+
+        <LinearLayout
+            style="@style/layout.m.w"
+            android:background="@drawable/bg_item_single"
+            android:orientation="horizontal"
+            android:padding="@dimen/p10" >
+
+            <TextView
+                style="@style/layout.w.w"
+                android:text="卡　号:"
+                android:textColor="@color/text_blue"
+                android:textSize="@dimen/t18" />
+
+            <EditText
+                android:maxLength="20"
+                android:id="@+id/mCard"
+                style="@style/textfield.transparent"
+                android:layout_width="match_parent"
+                android:layout_marginLeft="@dimen/m10"
+                android:inputType="number" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/mBankContainer"
+            android:clickable="true"
+            style="@style/layout.m.w"
+            android:layout_marginTop="@dimen/m10"
+            android:background="@drawable/bg_item_single_selector"
+            android:orientation="horizontal"
+            android:padding="@dimen/p10" >
+
+            <TextView
+                style="@style/layout.w.w"
+                android:text="银　行:"
+                android:textColor="@color/text_blue"
+                android:textSize="@dimen/t18" />
+
+            <TextView
+                android:id="@+id/mBank"
+                style="@style/layout.m.w"
+                android:layout_marginLeft="@dimen/m10"
+                android:drawablePadding="@dimen/p10"
+                android:drawableRight="@drawable/icon_back_dark_r180"
+                android:textColor="@color/text_black"
+                android:textSize="@dimen/t18" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/mCityContainer"
+            android:clickable="true"
+            style="@style/layout.m.w"
+            android:layout_marginTop="@dimen/m10"
+            android:background="@drawable/bg_item_single_selector"
+            android:orientation="horizontal"
+            android:padding="@dimen/p10" >
+
+            <TextView
+                style="@style/layout.w.w"
+                android:text="省　市:"
+                android:textColor="@color/text_blue"
+                android:textSize="@dimen/t18" />
+
+            <TextView
+                android:id="@+id/mCity"
+                style="@style/layout.m.w"
+                android:layout_marginLeft="@dimen/m10"
+                android:drawablePadding="@dimen/p10"
+                android:drawableRight="@drawable/icon_back_dark_r180"
+                android:textColor="@color/text_black"
+                android:textSize="@dimen/t18" />
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/layout.m.w"
+            android:layout_marginTop="@dimen/m10"
+            android:background="@drawable/bg_item_single"
+            android:orientation="horizontal"
+            android:padding="@dimen/p10" >
+
+            <TextView
+                style="@style/layout.w.w"
+                android:text="开户行:"
+                android:textColor="@color/text_blue"
+                android:textSize="@dimen/t18" />
+
+            <EditText
+                android:id="@+id/mInitBank"
+                android:maxLength="100"
+                style="@style/textfield.transparent"
+                android:layout_width="match_parent"
+                android:layout_marginLeft="@dimen/m10" />
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/layout.m.w"
+            android:layout_marginTop="@dimen/m10"
+            android:background="@drawable/bg_item_single"
+            android:orientation="horizontal"
+            android:padding="@dimen/p10" >
+
+            <TextView
+                style="@style/layout.w.w"
+                android:text="验证码:"
+                android:textColor="@color/text_blue"
+                android:textSize="@dimen/t18" />
+
+            <EditText
+                android:maxLength="6"
+                android:id="@+id/mCode"
+                style="@style/textfield.transparent"
+                android:layout_width="match_parent"
+                android:layout_marginLeft="@dimen/m10"
+                android:inputType="number" />
+        </LinearLayout>
+    </LinearLayout>
+    >
+
+</ScrollView>

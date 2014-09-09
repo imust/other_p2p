@@ -2,8 +2,8 @@ package demo.p2p.hl.http.api;
 
 import java.util.List;
 
-import demo.p2p.hl.data.Bank;
-import demo.p2p.hl.data.BankListResult;
+import demo.p2p.hl.data.BankCard;
+import demo.p2p.hl.data.BankCardListResult;
 import demo.p2p.hl.data.Bid;
 import demo.p2p.hl.data.BidListResult;
 import demo.p2p.hl.data.Loan;
@@ -88,10 +88,10 @@ public class Api {
      * @return
      * @throws ApiException
      */
-    public static List<Bank> getBankList() throws ApiException {
+    public static List<BankCard> getBankCardList() throws ApiException {
         String result = 
         HttpHelper.getDefault().get(createUri("user", "bank"));
-        return JsonUtil.getObject(result, BankListResult.class).list;
+        return JsonUtil.getObject(result, BankCardListResult.class).list;
     }
     
     /**

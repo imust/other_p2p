@@ -1,0 +1,14 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/layout.m.m"
+    >
+
+    <ListView
+    	android:dividerHeight="0dp"
+        android:divider="@color/bg_empty"
+        android:listSelector="@color/bg_empty"
+        android:id="@+id/mListView"
+        style="@style/layout.m.m" >
+    </ListView>
+
+</LinearLayout>
