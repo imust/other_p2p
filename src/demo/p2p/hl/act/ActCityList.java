@@ -2,6 +2,7 @@ package demo.p2p.hl.act;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.EActivity;
+import org.androidannotations.annotations.Extra;
 import org.androidannotations.annotations.ViewById;
 
 import android.content.Context;
@@ -11,19 +12,25 @@ import android.widget.ListView;
 import demo.p2p.hl.R;
 import demo.p2p.hl.base.BaseActivity;
 import demo.p2p.hl.base.EsayAdapter;
-import demo.p2p.hl.data.Bank;
-import demo.p2p.hl.view.ItemViewBank_;
+import demo.p2p.hl.data.City;
+import demo.p2p.hl.data.Province;
+import demo.p2p.hl.view.ItemViewCity_;
 
-@EActivity(R.layout.act_bank_list)
-public class ActBankList extends BaseActivity {
+@EActivity(R.layout.act_city_list)
+public class ActCityList extends BaseActivity {
 
     @ViewById
     ListView mListView;
-
-    EsayAdapter<Bank, ItemViewBank_> mListAdapter;
     
-    public static void start(Context context) {
-        context.startActivity(new Intent(context, ActBankList_.class));
+    @Extra("province")
+    Province mProvince;
+
+    EsayAdapter<City, ItemViewCity_> mListAdapter;
+    
+    public static void start(Context context, Province province) {
+        Intent intent = new Intent(context, ActCityList_.class);
+        intent.putExtra("province", province);
+        context.startActivity(intent);
     }
     
     @Override
@@ -40,13 +47,13 @@ public class ActBankList extends BaseActivity {
     
     @AfterViews
     void init() {
-        setTitle("设置银行");
-        mListAdapter = new EsayAdapter<Bank, ItemViewBank_>(this) {};
+        setTitle("选择城市");
+        mListAdapter = new EsayAdapter<City, ItemViewCity_>(this) {};
         mListView.setAdapter(mListAdapter);
-        mListAdapter.setList(Bank.createDefault());
+        mListAdapter.setList(mProvince.cities);
     }
     
-    public void onEventMainThread(Bank event) {
+    public void onEventMainThread(City city) {
         finish();
     }
     

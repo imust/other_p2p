@@ -48,6 +48,24 @@ public class Api {
         return JsonUtil.getObject(result, RechargeResult.class).bean.url;
     }
     
+    /**
+     * 向当前绑定的手机发送验证码
+     * @throws ApiException
+     */
+    public static void sendPhoneCode() throws ApiException {
+        String result = 
+                HttpHelper.getDefault().get(createUri("user", "phoneCode"), true, 
+                "voice", false);
+    }
+    
+    /**
+     * 向宝付要验证码
+     * @throws ApiException
+     */
+    public static void sendPayCode() throws ApiException {
+        String result = 
+                HttpHelper.getDefault().get(createUri("user", "payCode"));
+    }
     
     /**
      * 获取当前登录用户
@@ -123,6 +141,22 @@ public class Api {
      */
     public static void updateMessageStatus() throws ApiException {
         HttpHelper.getDefault().post(createUri("user", "message", "-1"),"all", true);
+    }
+    
+    /**
+     * 添加银行卡
+     * @param bankCard
+     * @throws ApiException
+     */
+    public static void createBackCard(BankCard bankCard, String code) throws ApiException {
+        HttpHelper.getDefault().put(createUri("user", "bank"), 
+                "card", bankCard.card,
+                "bankNmae", bankCard.bankName,
+                "province", bankCard.province, 
+                "city", bankCard.city, 
+                "add", bankCard.add, 
+                "phoneCode", code
+                );
     }
     
     

@@ -12,25 +12,25 @@ import android.widget.TextView;
 import de.greenrobot.event.EventBus;
 import demo.p2p.hl.R;
 import demo.p2p.hl.base.AdapterView;
-import demo.p2p.hl.data.Province;
+import demo.p2p.hl.data.City;
 
 @EViewGroup(R.layout.list_item_simple_string)
-public class ItemViewProvince extends LinearLayout implements AdapterView<Province>{
+public class ItemViewCity extends LinearLayout implements AdapterView<City>{
 
     @ViewById
     TextView mContent;
     
-    private Province mData;
+    private City mData;
     
-    public ItemViewProvince(Context context, AttributeSet attrs, int defStyle) {
+    public ItemViewCity(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
     }
 
-    public ItemViewProvince(Context context, AttributeSet attrs) {
+    public ItemViewCity(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public ItemViewProvince(Context context) {
+    public ItemViewCity(Context context) {
         super(context);
     }
 
@@ -40,7 +40,7 @@ public class ItemViewProvince extends LinearLayout implements AdapterView<Provin
     }
 
     @Override
-    public void bindData(Province data) {
+    public void bindData(City data) {
         mData = data;
         bindContent();
     }
@@ -51,7 +51,7 @@ public class ItemViewProvince extends LinearLayout implements AdapterView<Provin
     
     @Click(R.id.mContent)
     public void onContentClick() {
-        EventBus.getDefault().postSticky(mData);
+        EventBus.getDefault().post(mData);
     }
     
     

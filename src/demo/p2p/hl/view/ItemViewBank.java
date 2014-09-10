@@ -13,7 +13,6 @@ import de.greenrobot.event.EventBus;
 import demo.p2p.hl.R;
 import demo.p2p.hl.base.AdapterView;
 import demo.p2p.hl.data.Bank;
-import demo.p2p.hl.event.EventBankSelect;
 
 @EViewGroup(R.layout.list_item_simple_string)
 public class ItemViewBank extends LinearLayout implements AdapterView<Bank>{
@@ -52,7 +51,7 @@ public class ItemViewBank extends LinearLayout implements AdapterView<Bank>{
     
     @Click(R.id.mContent)
     public void onContentClick() {
-        EventBus.getDefault().postSticky(new EventBankSelect(mData));
+        EventBus.getDefault().postSticky(mData);
     }
     
     

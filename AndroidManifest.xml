@@ -50,6 +50,14 @@
         <activity
             android:name="demo.p2p.hl.act.ActBankList_"
             android:screenOrientation="portrait" />
+        <activity
+            android:name="demo.p2p.hl.act.ActProvinceList_"
+            android:screenOrientation="portrait" />
+        
+        <activity
+            android:name="demo.p2p.hl.act.ActCityList_"
+            android:screenOrientation="portrait" />
+        
         
         
         

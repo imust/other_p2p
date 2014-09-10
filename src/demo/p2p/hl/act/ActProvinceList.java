@@ -11,19 +11,22 @@ import android.widget.ListView;
 import demo.p2p.hl.R;
 import demo.p2p.hl.base.BaseActivity;
 import demo.p2p.hl.base.EsayAdapter;
-import demo.p2p.hl.data.Bank;
-import demo.p2p.hl.view.ItemViewBank_;
+import demo.p2p.hl.data.City;
+import demo.p2p.hl.data.Province;
+import demo.p2p.hl.view.ItemViewProvince_;
 
-@EActivity(R.layout.act_bank_list)
-public class ActBankList extends BaseActivity {
+@EActivity(R.layout.act_province_list)
+public class ActProvinceList extends BaseActivity {
 
     @ViewById
     ListView mListView;
 
-    EsayAdapter<Bank, ItemViewBank_> mListAdapter;
+    private Province mSelectProvince;
+    
+    EsayAdapter<Province, ItemViewProvince_> mListAdapter;
     
     public static void start(Context context) {
-        context.startActivity(new Intent(context, ActBankList_.class));
+        context.startActivity(new Intent(context, ActProvinceList_.class));
     }
     
     @Override
@@ -40,13 +43,22 @@ public class ActBankList extends BaseActivity {
     
     @AfterViews
     void init() {
-        setTitle("设置银行");
-        mListAdapter = new EsayAdapter<Bank, ItemViewBank_>(this) {};
+        setTitle("选择省份");
+        mListAdapter = new EsayAdapter<Province, ItemViewProvince_>(this) {};
         mListView.setAdapter(mListAdapter);
-        mListAdapter.setList(Bank.createDefault());
+        mListAdapter.setList(Province.createDefault());
     }
     
-    public void onEventMainThread(Bank event) {
+    public void onEventMainThread(Province province) {
+        mSelectProvince = province;
+        if (mSelectProvince.selectCity == null) {
+            ActCityList.start(this, province);
+        }
+    }
+    
+    public void onEventMainThread(City city) {
+        mSelectProvince.selectCity = city;
+        postSticky(mSelectProvince);
         finish();
     }
     

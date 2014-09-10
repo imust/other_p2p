@@ -7,7 +7,7 @@ import demo.p2p.hl.base.AdapterData;
 public class BankCard implements AdapterData {
     
     /**
-     * 卡号后四位
+     * 服务端返的时候是卡号后四位
      */
     public String card;
     

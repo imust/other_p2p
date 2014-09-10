@@ -53,6 +53,10 @@ public class BaseActivity extends Activity {
         EventBus.getDefault().post(event);
     }
     
+    public void postSticky(Object event) {
+        EventBus.getDefault().postSticky(event);
+    }
+    
     public void registerEventBus() {
         EventBus.getDefault().register(this);
     }

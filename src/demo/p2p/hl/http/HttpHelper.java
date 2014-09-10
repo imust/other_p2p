@@ -125,5 +125,20 @@ public class HttpHelper {
         }
     }
     
+    public String put(CharSequence url, Object... params) throws ApiException  {
+        try {
+            HttpRequest request = HttpRequest.put(url);
+            request = auth(request);
+            if (params != null) {
+                for (int i=0 ; i<params.length / 2;i++) {
+                    request.form(params[i*2], params[i*2+1]);
+                }
+            }
+            return result(request);
+        } catch (Exception e) {
+            throw new ApiException("网络连接异常");
+        }
+    }
+    
     
 }
