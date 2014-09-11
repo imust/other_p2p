@@ -60,6 +60,7 @@ public class ItemViewBankCard extends LinearLayout implements AdapterView<BankCa
     
     public void bindDefault() {
         mDefault.setText(mData.isDefault ? "默认" : "设为默认");
+        mDefault.setEnabled(mData.isDefault ? false : true);
     }
     
     

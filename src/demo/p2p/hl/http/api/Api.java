@@ -32,8 +32,29 @@ public class Api {
     public static User login(String username, String password) throws ApiException {
         String result =
         HttpHelper.getDefault().get(createUri("user", "logins"), true, 
-                "username", username , "pwd", password);
+                "username", username , 
+                "pwd", password,
+                "velify", ""
+                );
         return JsonUtil.getObject(result, UserResult.class).bean;
+    }
+    
+    /**
+     * 用户注册
+     * @param realName
+     * @param password
+     * @param id
+     * @param phone
+     * @param code
+     * @throws ApiException
+     */
+    public static void reg(String realName, String password, String id, String phone, String code) throws ApiException {
+        HttpHelper.getDefault().put(createUri("user", ""),  
+                "phoneCode", code , 
+                "pwd", password, 
+                "idCard", id, 
+                "phone", phone, 
+                "realName", realName);
     }
     
     /**
@@ -52,10 +73,10 @@ public class Api {
      * 向当前绑定的手机发送验证码
      * @throws ApiException
      */
-    public static void sendPhoneCode() throws ApiException {
-        String result = 
-                HttpHelper.getDefault().get(createUri("user", "phoneCode"), true, 
-                "voice", false);
+    public static void sendPhoneCode(String phone, boolean voice) throws ApiException {
+        HttpHelper.getDefault().get(createUri("system", "phoneCode"), true, 
+                "phone", phone,
+                "voice", voice);
     }
     
     /**
@@ -63,8 +84,7 @@ public class Api {
      * @throws ApiException
      */
     public static void sendPayCode() throws ApiException {
-        String result = 
-                HttpHelper.getDefault().get(createUri("user", "payCode"));
+        HttpHelper.getDefault().get(createUri("user", "payCode"));
     }
     
     /**

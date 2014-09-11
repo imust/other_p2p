@@ -30,6 +30,12 @@
         android:layout_marginRight="50dp"
         android:text="登录" />
     
+    <Button
+        android:id="@+id/reg"
+        style="@style/layout.m.w"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:text="注册" />
     
 
 </LinearLayout>

@@ -86,20 +86,14 @@ public class HttpHelper {
                 throw new ApiAuthorizedException();
             }
             
-            if (request.serverError()) {
-                // {code:500, msg:xxxxx}
-                String msg = JsonUtil.getString(body, "msg");
-                Lg.e("http", "500:" + body);
-                throw new ApiException(msg != null ? msg :  "未知的服务端错误");
-            }
-            
-            Lg.e("http", code + ":" + request.url().toString() + "\nbody:" + body);
+            // {code:500, msg:xxxxx}
+            String msg = JsonUtil.getString(body, "msg");
+            Lg.e("http", code + ":" + body);
+            throw new ApiException(msg != null ? msg :  "未知的服务端错误");
             
         } catch (HttpRequestException e) {
             throw new ApiException("网络连接异常");
         }
-        
-        throw new ApiException("未知的服务端错误");
     }
     
     public String get(CharSequence url) throws ApiException {
@@ -117,9 +111,12 @@ public class HttpHelper {
             if (params != null) {
                 for (int i=0 ; i<params.length / 2;i++) {
                     request.form(params[i*2], params[i*2+1]);
+                    Lg.d("param:" + params[i*2] + "=" + params[i*2+1]);
                 }
             }
             return result(request);
+        } catch (ApiException e) { 
+            throw e;  
         } catch (Exception e) {
             throw new ApiException("网络连接异常");
         }
@@ -132,10 +129,14 @@ public class HttpHelper {
             if (params != null) {
                 for (int i=0 ; i<params.length / 2;i++) {
                     request.form(params[i*2], params[i*2+1]);
+                    Lg.d("param:" + params[i*2] + "=" + params[i*2+1]);
                 }
             }
             return result(request);
+        } catch (ApiException e) { 
+            throw e;  
         } catch (Exception e) {
+            e.printStackTrace();
             throw new ApiException("网络连接异常");
         }
     }

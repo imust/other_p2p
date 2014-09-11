@@ -112,7 +112,7 @@ public class ActBankAdd extends BaseActivity {
     
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.msg_setting, menu);
+        getMenuInflater().inflate(R.menu.bank_card_add, menu);
         return super.onCreateOptionsMenu(menu);
         
     }

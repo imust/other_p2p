@@ -1,0 +1,137 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/layout.m.m" >
+
+    <LinearLayout
+        style="@style/layout.m.m"
+        android:orientation="vertical"
+        android:padding="@dimen/p10" >
+
+        <LinearLayout
+            android:layout_height="@dimen/s50"
+            style="@style/layout.m.w"
+            android:background="@drawable/bg_item_top"
+            android:orientation="horizontal"
+            android:padding="@dimen/p10" >
+
+            <TextView
+                style="@style/layout.w.w"
+                android:text="姓　名:"
+                android:textColor="@color/text_blue"
+                android:textSize="@dimen/t18" />
+
+            <EditText
+                android:maxLength="20"
+                android:id="@+id/mRealName"
+                style="@style/textfield.transparent"
+                android:layout_width="match_parent"
+                android:layout_marginLeft="@dimen/m10"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_height="@dimen/s50"
+            android:id="@+id/mBankContainer"
+            android:clickable="true"
+            style="@style/layout.m.w"
+            android:background="@drawable/bg_item_middle_selector"
+            android:orientation="horizontal"
+            android:padding="@dimen/p10" >
+
+            <TextView
+                style="@style/layout.w.w"
+                android:text="身份证:"
+                android:textColor="@color/text_blue"
+                android:textSize="@dimen/t18" />
+
+            <EditText
+                android:maxLength="20"
+                android:id="@+id/mID"
+                style="@style/textfield.transparent"
+                android:layout_width="match_parent"
+                android:layout_marginLeft="@dimen/m10"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_height="@dimen/s50"
+            android:id="@+id/mCityContainer"
+            android:clickable="true"
+            style="@style/layout.m.w"
+            android:background="@drawable/bg_item_middle_selector"
+            android:orientation="horizontal"
+            android:padding="@dimen/p10" >
+
+            <TextView
+                style="@style/layout.w.w"
+                android:text="密　码:"
+                android:textColor="@color/text_blue"
+                android:textSize="@dimen/t18" />
+
+            <EditText
+                android:maxLength="30"
+                android:id="@+id/mPassword"
+                style="@style/textfield.transparent"
+                android:layout_width="match_parent"
+                android:layout_marginLeft="@dimen/m10"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_height="@dimen/s50"
+            style="@style/layout.m.w"
+            android:background="@drawable/bg_item_middle"
+            android:orientation="horizontal"
+            android:padding="@dimen/p10" >
+
+            <TextView
+                style="@style/layout.w.w"
+                android:text="手机号:"
+                android:textColor="@color/text_blue"
+                android:textSize="@dimen/t18" />
+
+            <EditText
+                android:id="@+id/mPhone"
+                android:maxLength="100"
+                style="@style/textfield.transparent"
+                android:layout_width="match_parent"
+                android:layout_marginLeft="@dimen/m10" />
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/layout.m.w"
+            android:background="@drawable/bg_item_bottom"
+            android:layout_height="@dimen/s50"
+            android:orientation="horizontal"
+            android:padding="@dimen/p10" >
+
+            <TextView
+                style="@style/layout.w.w"
+                android:text="验证码:"
+                android:textColor="@color/text_blue"
+                android:textSize="@dimen/t18" />
+
+            <EditText
+                android:maxLength="6"
+                android:id="@+id/mCode"
+                style="@style/textfield.transparent"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_marginLeft="@dimen/m10"
+                android:inputType="number" />
+            
+            <Button
+                android:id="@+id/mSendCodeButton"
+                style="@style/button_blue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/t14"
+                android:text="发送验证码"
+                ></Button>
+            
+            
+        </LinearLayout>
+    </LinearLayout>
+    >
+
+</ScrollView>

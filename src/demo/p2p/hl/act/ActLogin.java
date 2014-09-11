@@ -61,8 +61,11 @@ public class ActLogin extends BaseActivity {
         
         User user = null;
         try {
-            user = Api.login("17092848584", "890218");
+//            user = Api.login("17092848584", "890218");
 //            user = Api.login("livehl@126.com", "890218");
+//            user = Api.login("13880803680", "1637496795a");
+            
+            user = Api.login("13880551453", "123456");
         } catch (ApiException e) {
             onApiException(e);
         }
@@ -73,6 +76,10 @@ public class ActLogin extends BaseActivity {
         }
     }
     
+    @Click
+    void reg() {
+        ActReg.start(this);
+    }   
     
     
 }

@@ -57,6 +57,10 @@
         <activity
             android:name="demo.p2p.hl.act.ActCityList_"
             android:screenOrientation="portrait" />
+        <activity
+            android:windowSoftInputMode="adjustResize"
+            android:name="demo.p2p.hl.act.ActReg_"
+            android:screenOrientation="portrait" />
         
         
         
