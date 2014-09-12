@@ -25,6 +25,8 @@ public class User {
     public String realName;
     /** 额外信息 */
     public UserExt ext;
+    /** 可能返回的连接到宝付注册页面的url地址 */
+    public String url;
     
     
     @Override

@@ -61,16 +61,21 @@ public class ActLogin extends BaseActivity {
         
         User user = null;
         try {
-//            user = Api.login("17092848584", "890218");
+            user = Api.login("17092848584", "890218");
 //            user = Api.login("livehl@126.com", "890218");
 //            user = Api.login("13880803680", "1637496795a");
-            
-            user = Api.login("13880551453", "123456");
+//            user = Api.login("13880551453", "1");
         } catch (ApiException e) {
             onApiException(e);
         }
         
         if (user != null) {
+            
+            if (user.url != null) {
+                ActWeb.start(this, user.url);
+                return;
+            }
+            
             UserSession.get().setUser(user);
             ActMain.start(this);
         }

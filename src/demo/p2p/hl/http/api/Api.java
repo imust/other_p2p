@@ -48,13 +48,15 @@ public class Api {
      * @param code
      * @throws ApiException
      */
-    public static void reg(String realName, String password, String id, String phone, String code) throws ApiException {
+    public static User reg(String realName, String password, String id, String phone, String code) throws ApiException {
+        String result = 
         HttpHelper.getDefault().put(createUri("user", ""),  
                 "phoneCode", code , 
                 "pwd", password, 
-                "idCard", id, 
+                "cardId", id, 
                 "phone", phone, 
-                "realName", realName);
+                "realname", realName);
+        return JsonUtil.getObject(result, UserResult.class).bean;
     }
     
     /**
