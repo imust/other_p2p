@@ -27,7 +27,7 @@ public class FragTrade extends BaseFragment {
     
     @AfterViews
     void init() {
-        
+        setTitle("交易中心");
         mListAdapter = new EsayAdapter<Loan, ItemViewLoan_>(getActivity()) {};
         mListView.setAdapter(mListAdapter);
         

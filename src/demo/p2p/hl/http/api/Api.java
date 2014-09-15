@@ -64,10 +64,10 @@ public class Api {
      * @return
      * @throws ApiException
      */
-    public static String recharge() throws ApiException {
+    public static String recharge(int amount) throws ApiException {
         String result =
         HttpHelper.getDefault().post(createUri("pay", "recharge_ajax"), 
-                "amount", 100);
+                "amount", amount);
         return JsonUtil.getObject(result, RechargeResult.class).bean.url;
     }
     
@@ -152,7 +152,7 @@ public class Api {
      * @param messageSetting 开启了的消息类型,  sms|weixin|email
      */
     public static void updateMsgSetting(boolean humanity, String messageSetting) throws ApiException {
-        HttpHelper.getDefault().post(createUri("user", "messageSetting"), 
+        HttpHelper.getDefault().post(createUri("user", "userSetting"), 
                 "page", 1, "humanity", humanity, "messageSetting", messageSetting);
     }
     

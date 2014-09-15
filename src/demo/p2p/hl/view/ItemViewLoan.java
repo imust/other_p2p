@@ -1,11 +1,13 @@
 package demo.p2p.hl.view;
 
+import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EViewGroup;
 import org.androidannotations.annotations.ViewById;
 
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -31,6 +33,9 @@ public class ItemViewLoan extends LinearLayout implements AdapterView<Loan>{
     
     @ViewById
     TextView mTerm;
+    
+    @ViewById
+    Button mLoan;
     
     @ViewById
     ProgressBar mProgressBar;
@@ -71,6 +76,14 @@ public class ItemViewLoan extends LinearLayout implements AdapterView<Loan>{
     public void bindProgress() {
         mProgressBar.setProgress(mData.progress);
         mProgressText.setText(mData.progress + "%");
+        if (mData.progress == 100) {
+            mLoan.setText("已结束");
+            mLoan.setEnabled(false);
+        } else {
+            mLoan.setText("投　标");
+            mLoan.setEnabled(true);
+        }
+                
     }
     
     public void bindAmount() {
@@ -85,6 +98,10 @@ public class ItemViewLoan extends LinearLayout implements AdapterView<Loan>{
         mTerm.setText("借款期限:" + mData.term + "个月");
     }
     
+    @Click(R.id.mLoan)
+    public void onLoanClick() {
+        //
+    }
     
     
     

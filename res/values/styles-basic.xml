@@ -62,8 +62,13 @@
         <item name="android:paddingBottom">0dp</item>
         <item name="android:textSize">@dimen/t18</item>
         <item name="android:textColor">@color/btn_blue</item>
-        <item name="android:text">投　标</item>
         <item name="android:background">@drawable/btn_blue_selector</item>
+    </style>
+    
+    <style name="button_white" parent="@style/button_blue">
+        <item name="android:textSize">@dimen/t16</item>
+        <item name="android:textColor">@color/btn_white</item>
+        <item name="android:background">@drawable/btn_white_selector</item>
     </style>
     
     

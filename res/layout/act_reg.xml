@@ -31,8 +31,6 @@
 
         <LinearLayout
             android:layout_height="@dimen/s50"
-            android:id="@+id/mBankContainer"
-            android:clickable="true"
             style="@style/layout.m.w"
             android:background="@drawable/bg_item_middle_selector"
             android:orientation="horizontal"
@@ -47,6 +45,7 @@
             <EditText
                 android:maxLength="20"
                 android:id="@+id/mID"
+                android:inputType="number"
                 style="@style/textfield.transparent"
                 android:layout_width="match_parent"
                 android:layout_marginLeft="@dimen/m10"
@@ -56,7 +55,6 @@
         <LinearLayout
             android:layout_height="@dimen/s50"
             android:id="@+id/mCityContainer"
-            android:clickable="true"
             style="@style/layout.m.w"
             android:background="@drawable/bg_item_middle_selector"
             android:orientation="horizontal"
@@ -70,6 +68,7 @@
 
             <EditText
                 android:maxLength="30"
+                android:password="true"
                 android:id="@+id/mPassword"
                 style="@style/textfield.transparent"
                 android:layout_width="match_parent"
@@ -93,6 +92,7 @@
             <EditText
                 android:id="@+id/mPhone"
                 android:maxLength="100"
+                android:inputType="phone"
                 style="@style/textfield.transparent"
                 android:layout_width="match_parent"
                 android:layout_marginLeft="@dimen/m10" />

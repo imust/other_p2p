@@ -11,10 +11,12 @@ import demo.p2p.hl.R;
 import demo.p2p.hl.http.api.ApiAuthorizedException;
 import demo.p2p.hl.http.api.ApiException;
 import demo.p2p.hl.util.ToastUtil;
+import demo.p2p.hl.view.CommonDialog;
 
 @EActivity
 public class BaseActivity extends Activity {
     
+    protected CommonDialog mCurrentDialog;
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,8 +26,7 @@ public class BaseActivity extends Activity {
     
     
     private void initActionBar() {
-        getActionBar().setIcon(R.drawable.icon_actionbar_logo);
-//        getActionBar().setIcon(R.drawable.icon_actionbar_logo_alert);
+        getActionBar().setIcon(R.drawable.icon_actionbar_logo_common);
         getActionBar().setDisplayHomeAsUpEnabled(true);
     }
     
@@ -41,11 +42,18 @@ public class BaseActivity extends Activity {
     
     @UiThread
     public void onApiException(ApiException ex) {
-        
+        cancelDialog();
         if (ex instanceof ApiAuthorizedException) {
             ToastUtil.getDefault().show(ex.getErrorMessage());
         } else {
             ToastUtil.getDefault().show(ex.getErrorMessage());
+        }
+    }
+    
+    protected void cancelDialog() {
+        if (mCurrentDialog != null) {
+            mCurrentDialog.dismiss();
+            mCurrentDialog = null;
         }
     }
     

@@ -28,6 +28,7 @@ public class FragPerson extends BaseFragment {
     
     @AfterViews
     void init() {
+        setTitle("个人中心");
         mName.setText(UserSession.get().getUser().realName);
         mPhone.setText("********" + UserSession.get().getUser().phone);
         mBalance.setText("账户余额: " + UserSession.get().getUser().balance);

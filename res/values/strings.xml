@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">demo.plug.core</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="app_name">当贷网</string>
+    
     <string name="drawer_open">open!</string>
-        <string name="drawer_close">close!</string>
+    <string name="drawer_close">close!</string>
     
 </resources>

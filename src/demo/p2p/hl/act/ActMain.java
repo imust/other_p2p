@@ -82,16 +82,16 @@ public class ActMain extends BaseActivity {
         
         mDrawer.setDrawerListener(mDrawerToggle);
         
-        getActionBar().setDisplayHomeAsUpEnabled(true);  
         getActionBar().setHomeButtonEnabled(true);  
-        getActionBar().setIcon(R.drawable.icon_actionbar_logo);
     }
     
     
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (mDrawerToggle.onOptionsItemSelected(item)) {
-          return true;
+        if (item.getItemId() == android.R.id.home) {
+            if (mDrawerToggle.onOptionsItemSelected(item)) {
+                return true;
+            }
         }
         return super.onOptionsItemSelected(item);
     }

@@ -1,41 +1,66 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/layout.m.m"
-    android:gravity="center"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    android:padding="@dimen/p10" >
 
-    <EditText
-        style="@style/textfield"
-        android:id="@+id/mUsername"
-        android:layout_marginBottom="10dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginRight="50dp" 
-        android:hint="用户名"
-        />
-
-    <EditText
-        style="@style/textfield"
-        android:id="@+id/mPassword"
-        android:layout_marginBottom="10dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginRight="50dp" 
-        android:hint="密码"
-        android:inputType="textPassword"
-        />
-
-    <Button
-        android:id="@+id/login"
+    <LinearLayout
         style="@style/layout.m.w"
-        android:layout_marginLeft="50dp"
-        android:layout_marginRight="50dp"
-        android:text="登录" />
-    
-    <Button
+        android:layout_height="@dimen/s50"
+        android:background="@drawable/bg_item_top"
+        android:orientation="horizontal"
+        android:padding="@dimen/p10" >
+
+        <TextView
+            style="@style/layout.w.w"
+            android:text="手机号:"
+            android:textColor="@color/text_blue"
+            android:textSize="@dimen/t18" />
+
+        <EditText
+            android:id="@+id/mUsername"
+            style="@style/textfield.transparent"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="@dimen/m10"
+            android:maxLength="20" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/mBankContainer"
+        style="@style/layout.m.w"
+        android:layout_height="@dimen/s50"
+        android:background="@drawable/bg_item_bottom"
+        android:orientation="horizontal"
+        android:padding="@dimen/p10" >
+
+        <TextView
+            style="@style/layout.w.w"
+            android:text="密　码:"
+            android:textColor="@color/text_blue"
+            android:textSize="@dimen/t18" />
+
+        <EditText
+            android:id="@+id/mPassword"
+            android:password="true"
+            style="@style/textfield.transparent"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="@dimen/m10"
+            android:maxLength="20" />
+    </LinearLayout>
+
+    <TextView
         android:id="@+id/reg"
         style="@style/layout.m.w"
-        android:layout_marginLeft="50dp"
-        android:layout_marginRight="50dp"
-        android:text="注册" />
-    
+        android:layout_height="@dimen/s50"
+        android:layout_marginTop="@dimen/m10"
+        android:background="@drawable/bg_item_single_selector"
+        android:clickable="true"
+        android:drawablePadding="@dimen/p10"
+        android:drawableRight="@drawable/icon_back_dark_r180"
+        android:gravity="center_vertical"
+        android:padding="@dimen/p10"
+        android:text="注册新用户"
+        android:textColor="@color/text_black"
+        android:textSize="@dimen/t18" />
 
 </LinearLayout>

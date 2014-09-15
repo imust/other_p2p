@@ -1,0 +1,56 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/layout.m.m"
+    android:orientation="vertical"
+    >
+
+    <LinearLayout
+        android:padding="@dimen/p10" 
+        android:id="@+id/mInputContainer"
+        style="@style/layout.m.m"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            style="@style/layout.m.w"
+            android:layout_height="@dimen/s50"
+            android:background="@drawable/bg_item_single"
+            android:orientation="horizontal"
+            android:padding="@dimen/p10" >
+
+            <TextView
+                style="@style/layout.w.w"
+                android:text="金额:"
+                android:textColor="@color/text_blue"
+                android:textSize="@dimen/t18" />
+
+            <EditText
+                android:id="@+id/mBalance"
+                android:inputType="number"
+                style="@style/textfield.transparent"
+                android:layout_width="match_parent"
+                android:layout_marginLeft="@dimen/m10"
+                android:maxLength="20" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/mCommit"
+            style="@style/layout.m.w"
+            android:layout_height="@dimen/s50"
+            android:layout_marginTop="@dimen/m10"
+            android:background="@drawable/bg_item_single_selector"
+            android:clickable="true"
+            android:drawablePadding="@dimen/p10"
+            android:drawableRight="@drawable/icon_back_dark_r180"
+            android:gravity="center_vertical"
+            android:padding="@dimen/p10"
+            android:text="前往宝付充值"
+            android:textColor="@color/text_black"
+            android:textSize="@dimen/t18" />
+    </LinearLayout>
+
+    <WebView
+        android:visibility="gone"
+        android:id="@+id/mWebView"
+        style="@style/layout.m.m" />
+
+</LinearLayout>

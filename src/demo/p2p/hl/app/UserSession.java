@@ -49,15 +49,18 @@ public class UserSession {
         return mUser;
     }
     
+    // 保存user登录状态
     public void setUser(User user) {
+        mSp.putBoolean(Sp.SP_USER_LOGIN, true);
         mUser = user;
     }
     
     public boolean isLogin() {
-        return mUser != null;
+        return mSp.getBoolean(Sp.SP_USER_LOGIN, false);
     }
 
     public void clear() {
+        mSp.putBoolean(Sp.SP_USER_LOGIN, false);
         mUser = null;
     	clearSession();
     }

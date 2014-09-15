@@ -7,7 +7,7 @@ import org.androidannotations.annotations.UiThread;
 import org.androidannotations.annotations.ViewById;
 
 import android.annotation.SuppressLint;
-import android.content.Context;
+import android.app.Activity;
 import android.content.Intent;
 import android.webkit.CookieManager;
 import android.webkit.CookieSyncManager;
@@ -27,10 +27,10 @@ public class ActWeb extends BaseActivity {
     @Extra("url")
     String url;
 
-    public static void start(Context context, String url) {
+    public static void start(Activity context, String url, int reqCode) {
         Intent intent = new Intent(context, ActWeb_.class);
         intent.putExtra("url", url);
-        context.startActivity(intent);
+        context.startActivityForResult(intent, reqCode);
     }
     
     

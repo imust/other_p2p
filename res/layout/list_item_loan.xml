@@ -60,6 +60,8 @@
             android:textSize="@dimen/t25" />
 
         <Button
+            android:text="投　标"
+            android:id="@+id/mLoan"
             style="@style/button_blue"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/s30" />

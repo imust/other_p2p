@@ -1,6 +1,8 @@
 package demo.p2p.hl.data;
 
-public class User {
+import java.io.Serializable;
+
+public class User implements Serializable {
     /** 已担保额度 */
     public float assure;
     /** 最大担保额度 */
@@ -18,16 +20,21 @@ public class User {
     /** id */
     public int id;
     /** 冻结金额 */
-    public int lockMoney;
+    public float lockMoney;
     /** 手机号后四位 */
     public String phone;
     /** 姓名 */
     public String realName;
+    /** 身份证后四位 */
+    public String idCard;
     /** 额外信息 */
     public UserExt ext;
+    /** 收益信息 */
+    public UserE ue;
     /** 可能返回的连接到宝付注册页面的url地址 */
     public String url;
-    
+    /** 暂存的密码 */
+    public String password;
     
     @Override
     public String toString() {

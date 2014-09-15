@@ -22,6 +22,8 @@
     <dimen name="p5">5dp</dimen> 
     <dimen name="p10">10dp</dimen> 
     <dimen name="p20">20dp</dimen> 
+    <dimen name="p30">30dp</dimen> 
+    
     
     
     <dimen name="m50">50dp</dimen> 

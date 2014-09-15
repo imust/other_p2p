@@ -18,12 +18,13 @@
         android:label="@string/app_name"
         android:theme="@style/Theme.Actionbar" >
         <activity
+            android:windowSoftInputMode="adjustResize"            
             android:name="demo.p2p.hl.act.ActLogin_"
             android:label="@string/app_name"
             android:screenOrientation="portrait" >
+            
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -37,6 +38,7 @@
             android:name="demo.p2p.hl.act.ActBids_"
             android:screenOrientation="portrait" />
          <activity
+            android:windowSoftInputMode="adjustResize"
             android:name="demo.p2p.hl.act.ActRecharge_"
             android:screenOrientation="portrait" />
         <activity

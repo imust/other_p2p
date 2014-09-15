@@ -36,7 +36,7 @@ public class ActAcc extends BaseActivity {
     	mName.setText(user.realName);
     	mEmail.setText(user.email + "********");
     	mPhone.setText("********" + user.phone);
-    	mId.setText(user.id + "");
+    	mId.setText("**************" + user.idCard);
     }
     
     

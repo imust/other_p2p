@@ -13,6 +13,9 @@ import demo.p2p.hl.util.ToastUtil;
  */
 public class Application extends android.app.Application {
     
+    public static final int REQ_REG = 0;
+    public static final int REQ_REG_FROM_BAOFU = 1;
+    
     @Override
     public void onCreate() {
         super.onCreate();

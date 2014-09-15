@@ -7,20 +7,25 @@ import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.UiThread;
 import org.androidannotations.annotations.ViewById;
 
-import android.content.Context;
+import android.app.Activity;
 import android.content.Intent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
 import demo.p2p.hl.R;
+import demo.p2p.hl.app.Application;
 import demo.p2p.hl.base.BaseActivity;
+import demo.p2p.hl.data.User;
 import demo.p2p.hl.http.api.Api;
 import demo.p2p.hl.http.api.ApiException;
 import demo.p2p.hl.util.ToastUtil;
+import demo.p2p.hl.view.CommonDialog;
 
 @EActivity(R.layout.act_reg)
 public class ActReg extends BaseActivity {
+    
+    public static final String EXT_USER = "user";
     
     @ViewById
     EditText mRealName;
@@ -35,8 +40,8 @@ public class ActReg extends BaseActivity {
     @ViewById
     Button mSendCodeButton;
     
-    public static void start(Context context) {
-        context.startActivity(new Intent(context, ActReg_.class));
+    public static void start(Activity context) {
+        context.startActivityForResult(new Intent(context, ActReg_.class), Application.REQ_REG);
     }
     
     @AfterViews
@@ -47,6 +52,8 @@ public class ActReg extends BaseActivity {
     @Click(R.id.mSendCodeButton)
     void onSendCodeClick() {
         sendCode();
+        mSendCodeButton.setText("已发送");
+        mSendCodeButton.setEnabled(false);
     }
     
     @Background
@@ -90,22 +97,34 @@ public class ActReg extends BaseActivity {
         String idCard = mID.getText().toString();
         String password = mPassword.getText().toString();
         commit(phone, realNmae, password, idCard, code);
+        showRegDialog();
     }
     
     @Background
     void commit(String phone, String realName, String password, String idCard, String code) {
         try {
-            Api.reg(realName, password, idCard, phone, code);
-            onCommitSuccess();
+            User user = Api.reg(realName, password, idCard, phone, code);
+            user.phone = phone;
+            user.password = password;
+            onCommitSuccess(user);
         } catch (ApiException e) {
             onApiException(e);
         }
     }
     
     @UiThread
-    void onCommitSuccess() {
-        ToastUtil.getDefault().show("添加成功");
+    void onCommitSuccess(User user) {
+        cancelDialog();
+        ToastUtil.getDefault().show("注册成功, 即将跳转到宝付");
+        Intent intent = new Intent();
+        intent.putExtra(EXT_USER, user);
+        setResult(RESULT_OK, intent);
         finish();
     }
     
+    void showRegDialog() {
+        cancelDialog();
+        mCurrentDialog = new CommonDialog(this).setMessage("注册中...");
+        mCurrentDialog.show();
+    }
 }
