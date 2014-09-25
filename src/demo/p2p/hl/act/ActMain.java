@@ -22,6 +22,7 @@ import demo.p2p.hl.data.Message;
 import demo.p2p.hl.event.EventDrawerChange;
 import demo.p2p.hl.event.EventExit;
 import demo.p2p.hl.event.EventMenuChange;
+import demo.p2p.hl.frag.BackPressed;
 import demo.p2p.hl.frag.FragHome_;
 import demo.p2p.hl.http.api.Api;
 import demo.p2p.hl.http.api.ApiException;
@@ -144,12 +145,25 @@ public class ActMain extends BaseActivity {
         getActionBar().setIcon(newMsgCount > 0 ? 
                 R.drawable.icon_actionbar_logo_alert :
                     R.drawable.icon_actionbar_logo_common);
-        
-        
         mMenuView.setNewMessageCount(newMsgCount);
     }
     
-    
+    @Override
+    public void onBackPressed() {
+        
+        if (mCurrentFragment != null && mCurrentFragment instanceof BackPressed) {
+            if (!((BackPressed) mCurrentFragment).onBackPressed()) {
+                return;
+            }
+        }
+        
+        if (!mDrawer.isDrawerOpen(mMenuView)) {
+            mDrawer.openDrawer(mMenuView);
+            return;
+        }
+        
+        super.onBackPressed();
+    }
     
     
 }

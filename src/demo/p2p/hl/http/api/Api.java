@@ -72,6 +72,18 @@ public class Api {
     }
     
     /**
+     * 标的
+     * @param loadId
+     * @param amount
+     * @return
+     * @throws ApiException
+     */
+    public static void loan(int loadId, int amount) throws ApiException {
+        HttpHelper.getDefault().post(createUri("loan", String.valueOf(loadId)), 
+                "amount", amount);
+    }
+    
+    /**
      * 向当前绑定的手机发送验证码
      * @throws ApiException
      */

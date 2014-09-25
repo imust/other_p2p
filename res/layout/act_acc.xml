@@ -1,6 +1,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/layout.m.m"
+    android:background="@color/bg"
     android:orientation="vertical"
     android:padding="@dimen/p10" >
 

@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import de.greenrobot.event.EventBus;
 import demo.p2p.hl.R;
 import demo.p2p.hl.base.AdapterView;
 import demo.p2p.hl.data.Loan;
@@ -100,7 +101,7 @@ public class ItemViewLoan extends LinearLayout implements AdapterView<Loan>{
     
     @Click(R.id.mLoan)
     public void onLoanClick() {
-        //
+        EventBus.getDefault().post(mData);
     }
     
     

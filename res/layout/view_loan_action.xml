@@ -1,0 +1,109 @@
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" >
+
+    <LinearLayout
+        android:id="@+id/mTopContainer"
+        style="@style/layout.m.w"
+        android:background="@color/bg"
+        android:orientation="vertical"
+        android:padding="@dimen/p10" >
+
+        <LinearLayout
+            style="@style/layout.m.w"
+            android:layout_height="@dimen/s50"
+            android:background="@drawable/bg_item_top"
+            android:orientation="horizontal"
+            android:padding="@dimen/p10" >
+
+            <TextView
+                style="@style/layout.w.w"
+                android:text="账户余额:"
+                android:textColor="@color/text_blue"
+                android:textSize="@dimen/t18" />
+
+            <TextView
+                android:id="@+id/mBalance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/m10"
+                android:textColor="@color/text_grey"
+                android:textSize="@dimen/t18" />
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/layout.m.w"
+            android:layout_height="@dimen/s50"
+            android:background="@drawable/bg_item_middle"
+            android:orientation="horizontal"
+            android:padding="@dimen/p10" >
+
+            <TextView
+                style="@style/layout.w.w"
+                android:text="可投金额:"
+                android:textColor="@color/text_blue"
+                android:textSize="@dimen/t18" />
+
+            <TextView
+                android:id="@+id/mMaxAmount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/m10"
+                android:textColor="@color/text_grey"
+                android:textSize="@dimen/t18" />
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/layout.m.w"
+            android:layout_height="@dimen/s50"
+            android:background="@drawable/bg_item_bottom"
+            android:orientation="horizontal"
+            android:padding="@dimen/p10" >
+
+            <TextView
+                style="@style/layout.w.w"
+                android:text="投标金额:"
+                android:textColor="@color/text_blue"
+                android:textSize="@dimen/t18" />
+
+            <EditText
+                android:id="@+id/mAmount"
+                style="@style/textfield.transparent"
+                android:layout_marginLeft="@dimen/m10"
+                android:inputType="number"
+                android:maxLength="20" />
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/layout.m.w"
+            android:layout_marginTop="@dimen/m10"
+            android:orientation="horizontal"
+            >
+
+            <Button
+                android:id="@+id/mCancelButton"
+                style="@style/button_blue"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/s40"
+                android:layout_marginRight="@dimen/m5"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="取消" />
+
+            <Button
+                android:id="@+id/mConfirmButton"
+                style="@style/button_blue"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/s40"
+                android:layout_marginLeft="@dimen/m5"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="确定" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+        android:id="@+id/mBottomContainer"
+        style="@style/layout.m.m"
+        android:background="@color/bg_black_80" />
+
+</merge>

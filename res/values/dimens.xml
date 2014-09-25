@@ -29,6 +29,7 @@
     <dimen name="m50">50dp</dimen> 
     <dimen name="m20">20dp</dimen> 
     <dimen name="m10">10dp</dimen> 
+    <dimen name="m5">5dp</dimen> 
     
     
     <dimen name="h50">50dp</dimen> 

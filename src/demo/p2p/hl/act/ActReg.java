@@ -52,7 +52,6 @@ public class ActReg extends BaseActivity {
     @Click(R.id.mSendCodeButton)
     void onSendCodeClick() {
         sendCode();
-        mSendCodeButton.setText("已发送");
         mSendCodeButton.setEnabled(false);
     }
     
@@ -69,8 +68,13 @@ public class ActReg extends BaseActivity {
     
     @UiThread
     void onSendCodeSuccess() {
+        mSendCodeButton.setText("已发送");
         ToastUtil.getDefault().show("验证码已发送到手机");
-        mSendCodeButton.setEnabled(false);
+    }
+    
+    @UiThread
+    void onSendCodeFail() {
+        mSendCodeButton.setEnabled(true);
     }
     
     @Override
