@@ -18,8 +18,8 @@ import demo.p2p.hl.util.JsonUtil;
 
 public class Api {
     
-//    public static final String URI_ROOT = "https://www.ddw0817.com";
-    public static final String URI_ROOT = "https://beta.ddw0817.com";
+    public static final String URI_ROOT = "https://www.ddw0817.com";
+//    public static final String URI_ROOT = "https://beta.ddw0817.com";
     
     
     /**
